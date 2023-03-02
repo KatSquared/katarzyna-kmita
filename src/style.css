@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Gajraj+One&family=Six+Caps&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  --text: 'Ubuntu', sans-serif;
+  --display: 'Audiowide', cursive;
+  --narrow: 'Six Caps', sans-serif;
+  --main: #32ff73;
+  --off-white: #dcdfec;
+  --off-black: #232b3f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  background-color: var(--off-white);
+}
+
+p, li, a {
+  font-family: var(--text);
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  font-stretch:expanded;
+  text-decoration: none;
+  color: var(--off-black);
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-family: var(--display);
+  text-transform: uppercase;
+  color: var(--off-white);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+main {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  right: 5%;
+  height: 50vh;
+  overflow-y: scroll;
+  max-width: 650px;
+}
+
+.wrapper-feather {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 48%;
+  right: 0%;
+  height: 50vh;
+  padding: 10px;
+  box-shadow: 0 0 15px 15px var(--off-white) inset;
+  pointer-events: none;
+}
+
+section h1 {
+  margin-top: 95px;
+  margin-bottom: 25px;
+  margin-left: -10px;
+  background: linear-gradient(
+    -45deg, #b44285, #111622, #ff00f3, 
+    #66ff00, #392149, #2becec, #b44285 
+  );
+  background-size: 400%;
+  padding: 10px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 6px transparent;
+  animation: rainbow-letters 40s linear infinite;
+}
+
+@keyframes rainbow-letters {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+section p {
+  margin-bottom: 95px;
+  letter-spacing: -1px;
+}
+
+.name {
+  width: 100vw;
+  position: fixed; 
+  left: 0;
+  top: 0%; 
+  margin-left: -50%;
+  z-index: 5;
+  mix-blend-mode: multiply;
+  animation: scroll 40s linear 500ms infinite alternate;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-240%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.name svg {
+  width: 600vw;
+}
+
