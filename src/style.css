@@ -48,33 +48,45 @@ canvas {
   pointer-events: none;
 }
 
-main {
+/* main {
   position: fixed;
   height: 100vh;
   width: 100vw;
-}
+} */
 
-wrapper {
+.wrapper {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 50vh;
   left: 50%;
   right: 5%;
-  height: 50vh;
-  overflow-y: scroll;
   max-width: 650px;
 }
 
+
 .wrapper-feather {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: fixed;
   left: 48%;
   right: 0%;
-  height: 50vh;
+  height: 25vh;
   padding: 10px;
-  box-shadow: 0 0 15px 15px var(--off-white) inset;
+  background-color: var(--off-white);
+  box-shadow: 0 0 15px 15px var(--off-white);
   pointer-events: none;
+  z-index: 3;
+}
+.wrapper-feather.top {
+  top: 0;
+}
+.wrapper-feather.bottom {
+  bottom: 0;
+}
+
+section {
+  padding-bottom: 580px !important;
+}
+
+section.contact {
+  margin-bottom: 350px;
 }
 
 section h1 {
@@ -92,6 +104,9 @@ section h1 {
   -webkit-text-stroke: 6px transparent;
   animation: rainbow-letters 40s linear infinite;
 }
+section h1.first {
+  margin-top: -155px;
+}
 
 @keyframes rainbow-letters {
   0% {
@@ -103,7 +118,6 @@ section h1 {
 }
 
 section p {
-  margin-bottom: 95px;
   letter-spacing: -1px;
 }
 
@@ -115,7 +129,7 @@ section p {
   margin-left: -50%;
   z-index: 5;
   mix-blend-mode: multiply;
-  animation: scroll 40s linear 500ms infinite alternate;
+  /* animation: scroll 120s linear 500ms infinite alternate; */
 }
 
 @keyframes scroll {

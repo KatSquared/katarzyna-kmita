@@ -17,8 +17,12 @@ import {CustomOutlinePass} from './CustomOutlinePass';
 
 // GLB/GLTF model loader import
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
-import { MeshBasicMaterial } from 'three';
 
+// GSAP IMPORTS
+import {gsap} from 'gsap';
+import {ScrollTrigger} from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 //
 // BASIC SCENE SETUP
@@ -149,17 +153,18 @@ uniforms.outlineColor.value.set(0x999999);
 let mixer;
 glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
   const flowerModel = gltf.scene;
-  flowerModel.position.set(0, -30, 5);
+  flowerModel.name = 'flower';
+  flowerModel.position.set(-10, -32, 0);
   flowerModel.scale.set(2, 2, 2);
-  flowerModel.rotateY(270);
-  flowerModel.rotateX(0.5);
-  // outlineScene.add(flowerModel); 
+  flowerModel.rotation.set(0.3, 270, -0.2)
+  outlineScene.add(flowerModel); 
   // animation
-  mixer = new THREE.AnimationMixer(flowerModel);
-  const clips = gltf.animations;
-  const clip = THREE.AnimationClip.findByName(clips, 'Armature|Bloom');
-  const action = mixer.clipAction(clip);
-  action.play();
+  // mixer = new THREE.AnimationMixer(flowerModel);
+  // const clips = gltf.animations;
+  // const clip = THREE.AnimationClip.findByName(clips, 'Armature|Bloom');
+  // const action = mixer.clipAction(clip);
+  // action.setLoop(THREE.LoopOnce);
+  // action.play();
   // material adjustments
   const flowerMaterial = flowerModel.getObjectByName('Object_9').material;
 
@@ -179,6 +184,8 @@ glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
   
   flowerMaterial.sheen = 1;
   flowerMaterial.sheenRoughness = 1;
+
+  console.log(outlineScene.children)
   
 }, undefined, function (error) {
 console.error(error);
@@ -189,11 +196,35 @@ console.error(error);
 //
 glbLoader.load('src/models/splash.glb', (gltf) => {
   const liquidModel = gltf.scene;
+  liquidModel.name = 'liquid';
   liquidModel.position.set(10, -17, -10);
   liquidModel.scale.set(10, 20, 40);
-  liquidModel.rotation.set(0, -0.1, -0.5)
+  liquidModel.rotation.set(0, -0.1, -0.5);
   scene.add(liquidModel); 
   
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial;
+  });
+  
+}, undefined, function (error) {
+console.error(error);
+});
+
+
+const objectsDistance = 50
+
+//
+// SMILE ICON
+//
+glbLoader.load('src/models/smile_icon.glb', (gltf) => {
+  const smileModel = gltf.scene;
+  smileModel.name = "smile";
+  smileModel.position.set(2, -3, -10);
+  smileModel.scale.set(70, 70, 70);
+  scene.add(smileModel); 
+
   scene.traverse(function(object) {
     if (object.material) 
       object.material = iridescentMaterial
@@ -204,16 +235,100 @@ console.error(error);
 });
 
 //
-// SMILE ICON
+// PERSON ICON
 //
-glbLoader.load('src/models/smile_icon.glb', (gltf) => {
-  const smileModel = gltf.scene;
-  smileModel.position.set(2, -3, -10);
-  smileModel.scale.set(70, 70, 70);
-  smileModel.name = "smile";
-  scene.add(smileModel); 
+glbLoader.load('src/models/person.glb', (gltf) => {
+  const personModel = gltf.scene;
+  personModel.name = "person";
+  personModel.position.set(1, -15, -10);
+  personModel.position.y -= objectsDistance;
+  personModel.scale.set(13, 17, 17);
+  scene.add(personModel); 
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial
+  });
   
-  console.log(smileModel);
+}, undefined, function (error) {
+console.error(error);
+});
+
+//
+// MAGNIFYING-GLASS ICON
+//
+glbLoader.load('src/models/magnifying_glass.glb', (gltf) => {
+  const magModel = gltf.scene;
+  magModel.name = "mag";
+  magModel.position.set(1, -4, -10);
+  magModel.position.y -= objectsDistance * 2;
+  magModel.rotateZ(250);
+  magModel.scale.set(5, 5, 5);
+  scene.add(magModel); 
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial
+  });
+  
+}, undefined, function (error) {
+console.error(error);
+});
+
+//
+// EDUCATION ICON
+//
+glbLoader.load('src/models/education.glb', (gltf) => {
+  const educationModel = gltf.scene;
+  educationModel.name = "education";
+  educationModel.position.set(2.5, -6, -10);
+  educationModel.position.y -= objectsDistance * 3;
+  educationModel.scale.set(8, 11, 8);
+  educationModel.rotateX(0.3);
+  scene.add(educationModel); 
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial
+  });
+  
+}, undefined, function (error) {
+console.error(error);
+});
+
+//
+// LAPTOP ICON
+//
+glbLoader.load('src/models/laptop.glb', (gltf) => {
+  const laptopModel = gltf.scene;
+  laptopModel.name = "laptop";
+  laptopModel.position.set(5, -9, -10);
+  laptopModel.position.y -= objectsDistance * 4;
+  laptopModel.scale.set(0.17, 0.17, 0.17);
+  laptopModel.rotateX(0.3);
+  laptopModel.rotateY(0.2)
+  scene.add(laptopModel); 
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial
+  });
+  
+}, undefined, function (error) {
+console.error(error);
+});
+
+//
+// SPEECH-BUBBLE ICON
+//
+glbLoader.load('src/models/typing_bubble.glb', (gltf) => {
+  const bubbleModel = gltf.scene;
+  bubbleModel.name = "bubble";
+  bubbleModel.position.set(3, 0, -10);
+  bubbleModel.position.y -= objectsDistance * 5;
+  bubbleModel.scale.set(6.5, 7, 6.5);
+  bubbleModel.rotateX(1.5);
+  scene.add(bubbleModel); 
 
   scene.traverse(function(object) {
     if (object.material) 
@@ -241,6 +356,18 @@ function onWindowResize() {
 }
 window.addEventListener("resize", onWindowResize, false);
 
+//
+// SCROLL EVENT LISTENER
+//
+
+const wrapper = document.getElementById('wrapper');
+let scrollY = window.scrollY;
+
+window.addEventListener('scroll', () =>
+{
+    scrollY = window.scrollY;
+})
+
 
 // ANIMATION
 const clock = new THREE.Clock();
@@ -258,6 +385,26 @@ function animate() {
     step += speed;
     smileModel.rotation.y = Math.sin(step * 10) * 0.4;
   }
+
+  // parallax movement and totations
+  const liquidModel = scene.getObjectByName('liquid');
+  if (liquidModel) {
+    liquidModel.position.y = - scrollY / window.innerHeight * objectsDistance * 0.95 - 17;
+    liquidModel.position.x = 0.002 * scrollY + 10;
+    liquidModel.rotation.x = 0.00005 * scrollY;
+    liquidModel.rotation.y = - 0.00005 * scrollY - 0.1;
+  }
+  const flowerModel = outlineScene.getObjectByName('flower');
+  if (flowerModel) {
+    flowerModel.position.x = 0.0001 * scrollY - 10;
+    flowerModel.position.y = - scrollY / window.innerHeight * objectsDistance * 1.004 - 28;
+    flowerModel.position.z = - 0.0005 * scrollY;
+    flowerModel.rotation.x = 0.00005 * scrollY + 0.3;
+    flowerModel.rotation.y = - 0.00005 * scrollY - 0.1 + 270;
+  }
+
+  // Animate camera
+  outlineCamera.position.y = -scrollY / window.innerHeight * objectsDistance - 7.3;
 
   renderer.render(scene, camera);
   outlineComposer.render(outlineScene, outlineCamera);
