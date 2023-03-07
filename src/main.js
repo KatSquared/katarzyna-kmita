@@ -157,14 +157,8 @@ glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
   flowerModel.position.set(-10, -32, 0);
   flowerModel.scale.set(2, 2, 2);
   flowerModel.rotation.set(0.3, 270, -0.2)
-  outlineScene.add(flowerModel); 
-  // animation
-  // mixer = new THREE.AnimationMixer(flowerModel);
-  // const clips = gltf.animations;
-  // const clip = THREE.AnimationClip.findByName(clips, 'Armature|Bloom');
-  // const action = mixer.clipAction(clip);
-  // action.setLoop(THREE.LoopOnce);
-  // action.play();
+  // outlineScene.add(flowerModel); 
+
   // material adjustments
   const flowerMaterial = flowerModel.getObjectByName('Object_9').material;
 
@@ -184,8 +178,6 @@ glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
   
   flowerMaterial.sheen = 1;
   flowerMaterial.sheenRoughness = 1;
-
-  console.log(outlineScene.children)
   
 }, undefined, function (error) {
 console.error(error);
@@ -221,50 +213,11 @@ const objectsDistance = 50
 glbLoader.load('src/models/smile_icon.glb', (gltf) => {
   const smileModel = gltf.scene;
   smileModel.name = "smile";
-  smileModel.position.set(2, -3, -10);
+  smileModel.position.set(20, -9, 44);
+  smileModel.rotateY(0.2)
+  // smileModel.position.set(2, -3, -10);
   smileModel.scale.set(70, 70, 70);
   scene.add(smileModel); 
-
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial
-  });
-  
-}, undefined, function (error) {
-console.error(error);
-});
-
-//
-// PERSON ICON
-//
-glbLoader.load('src/models/person.glb', (gltf) => {
-  const personModel = gltf.scene;
-  personModel.name = "person";
-  personModel.position.set(1, -15, -10);
-  personModel.position.y -= objectsDistance;
-  personModel.scale.set(13, 17, 17);
-  scene.add(personModel); 
-
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial
-  });
-  
-}, undefined, function (error) {
-console.error(error);
-});
-
-//
-// MAGNIFYING-GLASS ICON
-//
-glbLoader.load('src/models/magnifying_glass.glb', (gltf) => {
-  const magModel = gltf.scene;
-  magModel.name = "mag";
-  magModel.position.set(1, -4, -10);
-  magModel.position.y -= objectsDistance * 2;
-  magModel.rotateZ(250);
-  magModel.scale.set(5, 5, 5);
-  scene.add(magModel); 
 
   scene.traverse(function(object) {
     if (object.material) 
@@ -282,7 +235,7 @@ glbLoader.load('src/models/education.glb', (gltf) => {
   const educationModel = gltf.scene;
   educationModel.name = "education";
   educationModel.position.set(2.5, -6, -10);
-  educationModel.position.y -= objectsDistance * 3;
+  educationModel.position.y -= objectsDistance;
   educationModel.scale.set(8, 11, 8);
   educationModel.rotateX(0.3);
   scene.add(educationModel); 
@@ -303,7 +256,7 @@ glbLoader.load('src/models/laptop.glb', (gltf) => {
   const laptopModel = gltf.scene;
   laptopModel.name = "laptop";
   laptopModel.position.set(5, -9, -10);
-  laptopModel.position.y -= objectsDistance * 4;
+  laptopModel.position.y -= objectsDistance * 2;
   laptopModel.scale.set(0.17, 0.17, 0.17);
   laptopModel.rotateX(0.3);
   laptopModel.rotateY(0.2)
@@ -325,7 +278,7 @@ glbLoader.load('src/models/typing_bubble.glb', (gltf) => {
   const bubbleModel = gltf.scene;
   bubbleModel.name = "bubble";
   bubbleModel.position.set(3, 0, -10);
-  bubbleModel.position.y -= objectsDistance * 5;
+  bubbleModel.position.y -= objectsDistance * 3;
   bubbleModel.scale.set(6.5, 7, 6.5);
   bubbleModel.rotateX(1.5);
   scene.add(bubbleModel); 
@@ -377,13 +330,10 @@ const speed = 0.004;
 function animate() {
   requestAnimationFrame(animate);
 
-  if (mixer)
-    mixer.update(clock.getDelta());
-
   const smileModel = scene.getObjectByName('smile');
   if (smileModel) {
     step += speed;
-    smileModel.rotation.y = Math.sin(step * 10) * 0.4;
+    smileModel.rotation.y = Math.sin(step * 15) * 0.2 + 1.4;
   }
 
   // parallax movement and totations
