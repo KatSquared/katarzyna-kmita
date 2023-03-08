@@ -73,7 +73,7 @@ canvas {
   position: fixed;
   left: 48%;
   right: 0%;
-  height: 25vh;
+  height: 20vh;
   padding: 10px;
   background-color: var(--off-white);
   box-shadow: 0 0 15px 15px var(--off-white);
@@ -119,7 +119,7 @@ section.intro {
   line-height: 5rem;
   background: linear-gradient(
     -45deg, #b44285, #111622, #ff00f3, 
-    #32ff73, #392149, #00bbbb, #b44285 
+    #32ff73, #392149, #00bbbb, #b44285 95% 
   );
   background-size: 400%;
   padding: 10px;
@@ -154,7 +154,7 @@ section.intro {
   font-size: 10rem;
   background: linear-gradient(
     -45deg, #b44285, #111622, #ff00f3, 
-    #32ff73, #392149, #00bbbb, #b44285 
+    #32ff73, #392149, #00bbbb, #b44285 95% 
   );
   color: var(--off-white);
   background-size: 400%;
@@ -179,7 +179,7 @@ section h1 {
   margin-left: -10px;
   background: linear-gradient(
     -45deg, #b44285, #111622, #ff00f3, 
-    #66ff00, #392149, #2becec, #b44285 
+    #66ff00, #392149, #2becec, #b44285 95% 
   );
   background-size: 400%;
   padding: 10px;
