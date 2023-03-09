@@ -4,17 +4,8 @@ import * as THREE from 'three';
 
 // material effects exports
 import {IridescentMaterial} from './IridescentMaterial';
-import {SkyMaterial} from './SkyboxMaterial';
 import {ThinFilmFresnelMap} from './ThinFilmFresnelMap';
  
-// pass imports (filters)
-import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
-import {RenderPass} from './RenderPass';
-import {ShaderPass} from './ShaderPass';
-import {FXAAShader} from './FXAAShader';
-import {SMAAPass} from 'three/examples/jsm/postprocessing/SMAAPass';
-import {CustomOutlinePass} from './CustomOutlinePass';
-
 // GLB/GLTF model loader import
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
@@ -29,16 +20,23 @@ gsap.registerPlugin(ScrollTrigger);
 //
 const canvas = document.getElementById('background');
 
+// normal scene
 const scene = new THREE.Scene();
 scene.position.set(-35, 0, -10);
 scene.rotateY(1);
 scene.background = null;
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1001);
 
+// outline scene
 const outlineScene = new THREE.Scene();
-outlineScene.position.set(0, 0, 5);
 outlineScene.background = null;
 const outlineCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1001);
+
+// camera group
+const cameraGroup = new THREE.Group()
+cameraGroup.position.set(0, 0, -5)
+outlineScene.add(cameraGroup)
+cameraGroup.add(outlineCamera)
 
 outlineScene.add(scene)
 
@@ -46,11 +44,10 @@ const textureLoader = new THREE.TextureLoader();
 
 const renderer = new THREE.WebGLRenderer({
   canvas,
-  // antialias: false,
+  antialias: true,
   powerPreference: "high-performance",
   alpha: true
 });
-renderer.setClearColor( 0x111100, 0 );
 
 // renderer
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -65,6 +62,16 @@ const glbLoader = new GLTFLoader();
 renderer.render(outlineScene, outlineCamera);
 renderer.autoClear = false;
 renderer.render(scene, camera);
+
+// responsive resizing handler
+function onWindowResize() {
+  outlineCamera.aspect = window.innerWidth / window.innerHeight;
+  outlineCamera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener("resize", onWindowResize, false);
+
 
 
 //
@@ -112,75 +119,40 @@ iridescenceLookUp.boost = 5;
 
 
 //
-// OUTLINE EFFECT
-//
-// Set up post processing
-// const depthTexture = new THREE.DepthTexture();
-// const outlineRenderTarget = new THREE.WebGLRenderTarget(
-//   window.innerWidth,
-//   window.innerHeight,
-//   {
-//     depthTexture: depthTexture,
-//     depthBuffer: true,
-//   }
-// );
-// // Initial render pass
-// const outlineComposer = new EffectComposer(renderer, outlineRenderTarget);
-// const pass = new RenderPass(outlineScene, outlineCamera);
-// outlineComposer.addPass(pass);
-// // Outline pass
-// const customOutline = new CustomOutlinePass(
-//   new THREE.Vector2(window.innerWidth, window.innerHeight),
-//   outlineScene,
-//   outlineCamera
-// );
-// outlineComposer.addPass(customOutline);
-// // Antialias pass
-// const effectFXAA = new ShaderPass(FXAAShader);
-// effectFXAA.uniforms["resolution"].value.set(
-//   1 / window.innerWidth,
-//   1 / window.innerHeight
-//   );
-// outlineComposer.addPass(effectFXAA);
-// // adjustments
-// const uniforms = customOutline.fsQuad.material.uniforms;
-// uniforms.outlineColor.value.set(0x999999);
-
-
-//
 // FLOWER
 //
-// glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
-//   const flowerModel = gltf.scene;
-//   flowerModel.name = 'flower';
-//   flowerModel.position.set(-10, -32, 0);
-//   flowerModel.scale.set(2, 2, 2);
-//   flowerModel.rotation.set(0.3, 270, -0.2)
-//   outlineScene.add(flowerModel); 
+glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
+  const flowerModel = gltf.scene;
+  flowerModel.name = 'flower';
+  flowerModel.position.set(-10, -32, 0);
+  flowerModel.scale.set(2, 2, 2);
+  flowerModel.rotation.set(0.3, 270, -0.2)
+  outlineScene.add(flowerModel); 
 
-//   // material adjustments
-//   const flowerMaterial = flowerModel.getObjectByName('Object_9').material;
+  // material adjustments
+  const flowerMaterial = flowerModel.getObjectByName('Object_9').material;
 
-//   flowerMaterial.color = { r: 1, g: 0, b: 1}
-//   flowerMaterial.map = undefined;
+  flowerMaterial.color = { r: 1, g: 0, b: 1}
+  flowerMaterial.map = undefined;
 
-//   flowerMaterial.emissive = {r: 0.80, g: 1, b: 0.85};
-//   flowerMaterial.emissiveMap = textureLoader.load('src/img/texture4.jpg');
-//   flowerMaterial.emissiveIntensity = 1;
+  flowerMaterial.emissive = {r: 0.80, g: 1, b: 0.85};
+  flowerMaterial.emissiveMap = textureLoader.load('src/img/texture4.jpg');
+  flowerMaterial.emissiveIntensity = 1;
 
-//   flowerMaterial.metalness = 1;
-//   flowerMaterial.roughness  = 0.25;
-//   flowerMaterial.reflectivity = 1;
-//   flowerMaterial.transmission = 1;
-//   flowerMaterial.iridescence = 1;
-//   flowerMaterial.attenuationColor = {r: 1, g: 0, b: 1};
+  flowerMaterial.metalness = 1;
+  flowerMaterial.roughness  = 0.25;
+  flowerMaterial.reflectivity = 1;
+  flowerMaterial.transmission = 1;
+  flowerMaterial.iridescence = 1;
+  flowerMaterial.attenuationColor = {r: 1, g: 0, b: 1};
   
-//   flowerMaterial.sheen = 1;
-//   flowerMaterial.sheenRoughness = 1;
+  flowerMaterial.sheen = 1;
+  flowerMaterial.sheenRoughness = 1;
   
-// }, undefined, function (error) {
-// console.error(error);
-// });
+}, undefined, function (error) {
+console.error(error);
+});
+
 
 //
 // SPLASHED LIQUID MODEL
@@ -218,8 +190,8 @@ glbLoader.load('src/models/smile_icon.glb', (gltf) => {
 
   let smallSmile = smileModel.clone();
   smallSmile.name = "smile";
-  smallSmile.position.set(2, -3, -10);
-  smallSmile.position.y -= objectsDistance;
+  smallSmile.position.set(2, 22, -10);
+  smallSmile.position.y -= objectsDistance * 1.5 * 2;
   scene.add(smallSmile)
 
   scene.traverse(function(object) {
@@ -237,8 +209,8 @@ console.error(error);
 glbLoader.load('src/models/education.glb', (gltf) => {
   const educationModel = gltf.scene;
   educationModel.name = "education";
-  educationModel.position.set(2.5, -6, -10);
-  educationModel.position.y -= objectsDistance * 2;
+  educationModel.position.set(2.5, -5, -10);
+  educationModel.position.y -= objectsDistance * 1.5;
   educationModel.scale.set(8, 11, 8);
   educationModel.rotateX(0.3);
   scene.add(educationModel); 
@@ -258,8 +230,8 @@ console.error(error);
 glbLoader.load('src/models/laptop.glb', (gltf) => {
   const laptopModel = gltf.scene;
   laptopModel.name = "laptop";
-  laptopModel.position.set(5, -9, -10);
-  laptopModel.position.y -= objectsDistance * 3;
+  laptopModel.position.set(5, 40, -10);
+  laptopModel.position.y -= objectsDistance * 1.5 * 3;
   laptopModel.scale.set(0.17, 0.17, 0.17);
   laptopModel.rotateX(0.3);
   laptopModel.rotateY(0.2)
@@ -280,8 +252,8 @@ console.error(error);
 glbLoader.load('src/models/typing_bubble.glb', (gltf) => {
   const bubbleModel = gltf.scene;
   bubbleModel.name = "bubble";
-  bubbleModel.position.set(3, 0, -10);
-  bubbleModel.position.y -= objectsDistance * 4;
+  bubbleModel.position.set(3, 74, -10);
+  bubbleModel.position.y -= objectsDistance *1.5 * 4;
   bubbleModel.scale.set(6.5, 7, 6.5);
   bubbleModel.rotateX(1.5);
   scene.add(bubbleModel); 
@@ -296,30 +268,31 @@ console.error(error);
 });
 
 
-// responsive resizing handler
-function onWindowResize() {
-  outlineCamera.aspect = window.innerWidth / window.innerHeight;
-  outlineCamera.updateProjectionMatrix();
+//
+// STICKY MOUSE
+//
+const cursor = {};
+cursor.x = 0;
+cursor.y = 0;
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  // outlineComposer.setSize(window.innerWidth, window.innerHeight);
-  // effectFXAA.setSize(window.innerWidth, window.innerHeight);
-  // customOutline.setSize(window.innerWidth, window.innerHeight);
-  // effectFXAA.uniforms["resolution"].value.set(
-  //   1 / window.innerWidth,
-  //   1 / window.innerHeight
-  // );
-}
-window.addEventListener("resize", onWindowResize, false);
+window.addEventListener('mousemove', (event) => {
+  cursor.x = event.clientX / window.innerWidth - 0.5;
+  cursor.y = event.clientY / window.innerHeight - 0.5;
+})
 
 //
 // SCROLL EVENT LISTENER
 //
 let scrollY = window.scrollY;
+let currentSection = 0;
 
-window.addEventListener('scroll', () =>
-{
+
+window.addEventListener('scroll', () => {
     scrollY = window.scrollY;
+    const newSection = Math.round(scrollY / window.innerWidth);
+
+    if (newSection != currentSection)
+      currentSection = newSection;
 })
 
 
@@ -336,29 +309,34 @@ function animate() {
     smileModel.rotation.y = Math.sin(step * 15) * 0.2;
   }
 
-  // parallax movement and rotations
+  // scroll parallax movement and rotations
   const liquidModel = scene.getObjectByName('liquid');
   if (liquidModel) {
     liquidModel.position.y = - scrollY / window.innerHeight * objectsDistance * 0.95 - 17;
     liquidModel.position.x = 0.002 * scrollY + 10;
     liquidModel.rotation.x = 0.00005 * scrollY;
-    liquidModel.rotation.y = - 0.00005 * scrollY - 0.1;
+    liquidModel.rotation.y = - 0.000085 * scrollY;
   }
-  // const flowerModel = outlineScene.getObjectByName('flower');
-  // if (flowerModel) {
-  //   flowerModel.position.x = 0.0001 * scrollY - 10;
-  //   flowerModel.position.y = - scrollY / window.innerHeight * objectsDistance * 1.004 - 28;
-  //   flowerModel.position.z = - 0.0005 * scrollY;
-  //   flowerModel.rotation.x = 0.00005 * scrollY + 0.3;
-  //   flowerModel.rotation.y = - 0.00005 * scrollY - 0.1 + 270;
-  // }
+  const flowerModel = outlineScene.getObjectByName('flower');
+  if (flowerModel) {
+    flowerModel.position.x = 0.0001 * scrollY - 10;
+    flowerModel.position.y = - scrollY / window.innerHeight * objectsDistance * 1.004 - 28;
+    flowerModel.position.z = - 0.0005 * scrollY;
+    flowerModel.rotation.x = 0.00005 * scrollY + 0.3;
+    flowerModel.rotation.y = - 0.00005 * scrollY - 0.1 + 270;
+  }
+
+  // sticky mouse parallax 
+  const parallaxX = cursor.x;
+  const parallaxY = - cursor.y;
+  
+  cameraGroup.position.x += (parallaxX - cameraGroup.position.x);
+  cameraGroup.position.y += (parallaxY - cameraGroup.position.y);
 
   // Animate camera
   outlineCamera.position.y = -scrollY / window.innerHeight * objectsDistance - 7.3;
 
-  // renderer.render(scene, camera);
   renderer.render(outlineScene, outlineCamera);
-  // outlineComposer.render(outlineScene, outlineCamera);
 }
 
 animate()
