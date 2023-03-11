@@ -9,12 +9,6 @@ import {ThinFilmFresnelMap} from './ThinFilmFresnelMap';
 // GLB/GLTF model loader import
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
-// GSAP IMPORTS
-import {gsap} from 'gsap';
-import {ScrollTrigger} from 'gsap/all';
-
-gsap.registerPlugin(ScrollTrigger);
-
 //
 // BASIC SCENE SETUP
 //
@@ -176,7 +170,8 @@ console.error(error);
 });
 
 
-const objectsDistance = 50
+const objectsDistance = 50;
+const sectionMeshes = [];
 
 //
 // SMILE ICON
@@ -191,13 +186,15 @@ glbLoader.load('src/models/smile_icon.glb', (gltf) => {
   let smallSmile = smileModel.clone();
   smallSmile.name = "smile";
   smallSmile.position.set(2, 22, -10);
-  smallSmile.position.y -= objectsDistance * 1.5 * 2;
+  smallSmile.position.y -= objectsDistance * 1.2 * 5;
   scene.add(smallSmile)
 
   scene.traverse(function(object) {
     if (object.material) 
-      object.material = iridescentMaterial
+      object.material = iridescentMaterial;
   });
+
+  sectionMeshes.push(smallSmile);
   
 }, undefined, function (error) {
 console.error(error);
@@ -217,8 +214,56 @@ glbLoader.load('src/models/education.glb', (gltf) => {
 
   scene.traverse(function(object) {
     if (object.material) 
-      object.material = iridescentMaterial
+      object.material = iridescentMaterial;
   });
+
+  sectionMeshes.push(educationModel);
+  
+}, undefined, function (error) {
+console.error(error);
+});
+
+
+//
+// BRIEFCASE ICON
+//
+glbLoader.load('src/models/briefcase.glb', (gltf) => {
+  const briefcaseModel = gltf.scene;
+  briefcaseModel.name = "briefcase";
+  briefcaseModel.position.set(2.5, -5, -10);
+  briefcaseModel.position.y -= objectsDistance * 1.3 * 2;
+  briefcaseModel.scale.set(4, 4.7, 4);
+  scene.add(briefcaseModel); 
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial;
+  });
+
+  sectionMeshes.push(briefcaseModel);
+  
+}, undefined, function (error) {
+console.error(error);
+});
+
+//
+// COG ICON
+//
+glbLoader.load('src/models/cog.glb', (gltf) => {
+  const cogModel = gltf.scene;
+  cogModel.name = "cog";
+  cogModel.position.set(3, 5, -10);
+  cogModel.position.y -= objectsDistance *1.2 * 3;
+  cogModel.scale.set(6.5, 7, 6.5);
+  cogModel.rotateX(1.5);
+  scene.add(cogModel); 
+
+  scene.traverse(function(object) {
+    if (object.material) 
+      object.material = iridescentMaterial;
+  });
+
+  sectionMeshes.push(cogModel);
   
 }, undefined, function (error) {
 console.error(error);
@@ -230,9 +275,9 @@ console.error(error);
 glbLoader.load('src/models/laptop.glb', (gltf) => {
   const laptopModel = gltf.scene;
   laptopModel.name = "laptop";
-  laptopModel.position.set(5, 40, -10);
-  laptopModel.position.y -= objectsDistance * 1.5 * 3;
-  laptopModel.scale.set(0.17, 0.17, 0.17);
+  laptopModel.position.set(5, 25, -10);
+  laptopModel.position.y -= objectsDistance * 1.3 * 4;
+  laptopModel.scale.set(0.2, 0.2, 0.2);
   laptopModel.rotateX(0.3);
   laptopModel.rotateY(0.2)
   scene.add(laptopModel); 
@@ -242,30 +287,13 @@ glbLoader.load('src/models/laptop.glb', (gltf) => {
       object.material = iridescentMaterial
   });
   
+  sectionMeshes.push(laptopModel);
+
 }, undefined, function (error) {
 console.error(error);
 });
 
-//
-// SPEECH-BUBBLE ICON
-//
-glbLoader.load('src/models/typing_bubble.glb', (gltf) => {
-  const bubbleModel = gltf.scene;
-  bubbleModel.name = "bubble";
-  bubbleModel.position.set(3, 74, -10);
-  bubbleModel.position.y -= objectsDistance *1.5 * 4;
-  bubbleModel.scale.set(6.5, 7, 6.5);
-  bubbleModel.rotateX(1.5);
-  scene.add(bubbleModel); 
 
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial
-  });
-  
-}, undefined, function (error) {
-console.error(error);
-});
 
 
 //
@@ -284,15 +312,9 @@ window.addEventListener('mousemove', (event) => {
 // SCROLL EVENT LISTENER
 //
 let scrollY = window.scrollY;
-let currentSection = 0;
-
 
 window.addEventListener('scroll', () => {
     scrollY = window.scrollY;
-    const newSection = Math.round(scrollY / window.innerWidth);
-
-    if (newSection != currentSection)
-      currentSection = newSection;
 })
 
 
@@ -303,10 +325,15 @@ const speed = 0.004;
 function animate() {
   requestAnimationFrame(animate);
 
-  const smileModel = scene.getObjectByName('smile');
-  if (smileModel) {
+  // icons rotation
+  if (sectionMeshes.length >= 5) {
     step += speed;
-    smileModel.rotation.y = Math.sin(step * 15) * 0.2;
+    for(const mesh of sectionMeshes)
+    {
+      mesh.rotation.y = Math.sin(step * 15) * 0.2;
+      if (mesh.name === 'laptop' || mesh.name === 'education')
+        mesh.rotation.y = Math.sin(step * 15) * 0.07;
+    }
   }
 
   // scroll parallax movement and rotations
@@ -339,4 +366,4 @@ function animate() {
   renderer.render(outlineScene, outlineCamera);
 }
 
-animate()
+animate();
