@@ -6,6 +6,7 @@
   --narrow: 'Six Caps', sans-serif;
   --main: #32ff73;
   --off-white: #dcdfec;
+  --transparent-white: rgba(220, 223, 236, 0.8);
   --off-grey: #8b93aa;
   --off-black: #232b3f;
 }
@@ -99,8 +100,8 @@ nav i:hover, nav a:hover{
 }
 
 .menu-links{
-  background-color: rgba(220, 223, 236, 0.5);
-  backdrop-filter: blur(0.5px);
+  background-color: var(--transparent-white);
+  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(0.5px);
   text-align: right;
   position: fixed;
@@ -149,8 +150,9 @@ nav i:hover, nav a:hover{
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(220, 223, 236, 0.9);
-  z-index: 10;
+  background-color: var(--transparent-white);
+  backdrop-filter: blur(5px);
+  z-index: 22;
 }
 
 .intro-container {
@@ -221,18 +223,22 @@ nav i:hover, nav a:hover{
 .wrapper {
   position: absolute;
   top: 50vh;
-  left: 50%;
-  right: 5%;
+  left: 0;
+  right: 0;
   z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 
 section {
+  margin: 0 10%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-    max-width: 650px;
+  max-width: 750px;
 }
 
 section h1 {
@@ -328,12 +334,16 @@ section p {
 
 /* skills */
 
+.skills {
+  width: 100%;
+}
+
 .icon-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 611px;
   margin-bottom: 20px;
+  max-width: 650px;
 }
 
 .icon-row >*:hover {
@@ -450,22 +460,22 @@ section p {
   stroke:url(#svg-gradient) #00bbbb
 }
 
-/* projects */
-
 
 /* projects */
 
 section.projects {
   max-width: 100vw;
+  margin: 0;
   padding: 0 5vw;
-  margin-left: -900px;
-  background-color: var(--off-white);
+  align-items: center;
+  background-color: var(--transparent-white);
+  backdrop-filter: blur(5px);
 }
 
 .flex {
   display: flex;
   gap: 30px;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
 }
 
@@ -481,6 +491,10 @@ section.projects {
   min-width: 200px;
 }
 
+.projects .description {
+  margin-top: 7px;
+}
+
 .technologies {
   margin-top: 15px;
   margin-bottom: 30px;
@@ -489,6 +503,7 @@ section.projects {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 10px;
 }
 .technologies li {
   padding: 10px 20px;
@@ -496,4 +511,15 @@ section.projects {
   border: var(--main) solid 3px;
   border-radius: 30px;
   white-space: nowrap;
+}
+
+.contact i:not(.fa-arrow-left-long, .fa-arrow-right-long) {
+  padding: 10px;
+  font-size: 2rem;
+  background: linear-gradient(
+    -45deg, #b44285, #00bbbb 
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 6px transparent;
 }

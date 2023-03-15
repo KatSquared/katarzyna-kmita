@@ -186,6 +186,7 @@ glbLoader.load('src/models/smile_icon.glb', (gltf) => {
   let smallSmile = smileModel.clone();
   smallSmile.name = "smile";
   smallSmile.position.set(2, 22, -10);
+  smallSmile.rotateY(1.5)
   smallSmile.position.y -= objectsDistance * 1.2 * 5;
   scene.add(smallSmile)
 
@@ -225,28 +226,6 @@ console.error(error);
 
 
 //
-// BRIEFCASE ICON
-//
-glbLoader.load('src/models/briefcase.glb', (gltf) => {
-  const briefcaseModel = gltf.scene;
-  briefcaseModel.name = "briefcase";
-  briefcaseModel.position.set(2.5, -5, -10);
-  briefcaseModel.position.y -= objectsDistance * 1.3 * 2;
-  briefcaseModel.scale.set(4, 4.7, 4);
-  scene.add(briefcaseModel); 
-
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial;
-  });
-
-  sectionMeshes.push(briefcaseModel);
-  
-}, undefined, function (error) {
-console.error(error);
-});
-
-//
 // COG ICON
 //
 glbLoader.load('src/models/cog.glb', (gltf) => {
@@ -275,8 +254,8 @@ console.error(error);
 glbLoader.load('src/models/laptop.glb', (gltf) => {
   const laptopModel = gltf.scene;
   laptopModel.name = "laptop";
-  laptopModel.position.set(5, 25, -10);
-  laptopModel.position.y -= objectsDistance * 1.3 * 4;
+  laptopModel.position.set(7, -2, -10);
+  laptopModel.position.y -= objectsDistance * 1.3 * 2;
   laptopModel.scale.set(0.2, 0.2, 0.2);
   laptopModel.rotateX(0.3);
   laptopModel.rotateY(0.2)
@@ -326,7 +305,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   // icons rotation
-  if (sectionMeshes.length >= 5) {
+  if (sectionMeshes.length >= 4) {
     step += speed;
     for(const mesh of sectionMeshes)
     {
