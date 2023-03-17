@@ -65,8 +65,14 @@
         <section class="education first" id="education">
             <h1 class="rainbow-letters">Education</h1>
             <div class="main-text">
-                <p><i class="fa-solid fa-atom rainbow-letters"></i>2013-2017 <span>--</span><span class="bold"> BE in Nanotechnology </span><span>--</span> Gdańsk University of Technology</p>
-                <p><i class="fa-solid fa-pen-nib rainbow-letters"></i>2017-2020 <span>--</span><span class="bold"> BA in Graphic Design </span><span>--</span> University of the Arts Poznań</p>
+                <div class="flex">
+                    <i class="fa-solid fa-atom rainbow-letters"></i>
+                    <p>2013-2017 <span>--</span><span class="bold"> BE in Nanotechnology </span><span>--</span> Gdańsk University of Technology</p>
+                </div>
+                <div class="flex">
+                    <i class="fa-solid fa-pen-nib rainbow-letters"></i>
+                    <p>2017-2020 <span>--</span><span class="bold"> BA in Graphic Design </span><span>--</span> University of the Arts Poznań</p>
+                </div>
                 <p class="description">What has always fascinated me is the underlying essence of reality, design and human behavior.
                     That is my favorite part of web development - applying this understanding to the creation of
                     products that help businesses grow, educate and connect people.
@@ -81,7 +87,10 @@
         <section class="experience" id="experience">
             <h1 class="rainbow-letters">Experience</h1>
             <div class="main-text">
-                <p><i class="fa-solid fa-city rainbow-letters"></i> Since 2019 <span>--</span> Project Manager <span>--</span> Violet-Arch Architecture Firm</p>
+                <div class="flex">
+                    <i class="fa-solid fa-city rainbow-letters"></i>
+                    <p> Since 2019 <span>--</span> Project Manager <span>--</span> Violet-Arch Architecture Firm</p>
+                </div>
                 <p class="description">
                     My responsibilities have included coordination and division of work between architects and contractors <span>across 20+ ongoing projects</span>,  
                     as well as preparing and applying for documents required by local law. I have always ensured <span>timely delivery and high quality</span> of documentation.
@@ -145,11 +154,27 @@
         </section>
         
         <section class="projects" id="projects">
-            <h1 class="rainbow-letters">Cool projects</h1>
+            <h1 class="rainbow-letters">projects</h1>
             <div class="flex">
                 <div class="project-container">
                     <div>
-                        <img src="/src/img/bathbombs.png" alt="Bathbombs website screenshot">
+                        <div class="img-container">
+                            <div class="img-overlay">
+                                <a href="https://katsquared.github.io/bathbombs/" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-eye rainbow-letters"></i>
+                                        <p>View project</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/KatSquared/bathbombs" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                        <p>Source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="/src/img/bathbombs.png" alt="Bathbombs website screenshot">
+                        </div>
                         <p class="description">An e-commerce website built for a fictional bath goods company. Contains a fully 
                             functional basket and product filter system built entirely in vanilla JS, as well as 
                             landing page uilt in Three.js using 3D models.  
@@ -166,7 +191,23 @@
                 </div>
                 <div class="project-container">
                     <div>
-                        <img src="/src/img/quotes.png" alt="Quote merger website screenshot">
+                        <div class="img-container">
+                            <div class="img-overlay">
+                                <a href="https://katsquared.github.io/quote-merger/" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-eye rainbow-letters"></i>
+                                        <p>View project</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/KatSquared/quote-merger" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                        <p>Source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="/src/img/quotes.png" alt="Quote merger website screenshot">
+                        </div>
                         <p class="description">This project pulls, filters, chunks and mixes up two quotes pulled from
                             Quotable API, including proper query response management.
                         </p>
@@ -182,7 +223,23 @@
                 </div>
                 <div class="project-container">
                     <div>
-                        <img src="/src/img/architecture-firm.png" alt="Architecture firm website screenshot">
+                        <div class="img-container">
+                            <div class="img-overlay">
+                                <a href="https://katsquared.github.io/architecture-website/" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-eye rainbow-letters"></i>
+                                        <p>View project</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/KatSquared/architecture-website" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                        <p>Source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="/src/img/architecture-firm.png" alt="Architecture firm website screenshot">
+                        </div>
                         <p class="description">Redesign of the existing website for "Pracownia Projektowa Violet-Arch" - an archiectural firm
                             I've been working for. A fully responsive design with an infinite testimonial carousel and
                             image gallery build in vanilla JS, plus a simple PHP contact form. 
@@ -206,13 +263,27 @@
 
         <section class="contact" id="contact">
             <h1 class="rainbow-letters">Contact me</h1>
-            <p>I would love to join your team to contribute all my skills, tenacity and enthusiasm!
-                Get in touch with me at: 
-                <br><i class="fa-solid fa-envelope"></i> kmita.katarzyna.a@gmail.com 
-                <br>
-                Github and LinkedIn links:
-                <i class="fa-brands fa-github"></i><i class="fa-brands fa-linkedin"></i>
-            </p>
+            <div class="flex">
+                <img src="src/img/photo.png" alt="" srcset="">
+                <div class="main-text">
+                    <p>I would love to join your team to contribute my diverse skills, tenacity and enthusiasm to every project!
+                        <br>Get in touch with me at: 
+                    </p>
+                    <div class="flex">
+                        <i class="fa-solid fa-envelope"></i> 
+                        <p>kmita.katarzyna.a@gmail.com</p>
+                    </div>
+                    <p>Connect with me on:</p>
+                    <div class="flex">
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <p>Downloadable resume:</p>
+                    <div class="flex">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                </div>
+            </div>
             <div class="section-arrows">
                 <a href="#projects"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
                 <i class="fa-solid fa-arrow-left-long hidden"></i>
