@@ -92,12 +92,12 @@
                     <p> Since 2019 <span>--</span> Project Manager <span>--</span> Violet-Arch Architecture Firm</p>
                 </div>
                 <p class="description">
-                    My responsibilities have included coordination and division of work between architects and contractors <span>across 20+ ongoing projects</span>,  
-                    as well as preparing and applying for documents required by local law. I have always ensured <span>timely delivery and high quality</span> of documentation.
-                </p>
-                <p class="description">
                     I have created a custom-scripted Google Sheets logging system to keep track of the status of each task required for project completion, 
                     which has <span>shortened project completion by 50% and improved employee accountability</span>.
+                </p>
+                <p class="description">
+                    My responsibilities have included coordination and division of work between architects and contractors <span>across 20+ ongoing projects</span>,  
+                    as well as preparing and applying for documents required by local law. I have always ensured <span>timely delivery and high quality</span> of documentation.
                 </p>
             </div>
             <div class="section-arrows">
@@ -263,26 +263,36 @@
 
         <section class="contact" id="contact">
             <h1 class="rainbow-letters">Contact me</h1>
-            <div class="flex">
-                <img src="src/img/photo.png" alt="" srcset="">
-                <div class="main-text">
-                    <p>I would love to join your team to contribute my diverse skills, tenacity and enthusiasm to every project!
-                        <br>Get in touch with me at: 
-                    </p>
-                    <div class="flex">
-                        <i class="fa-solid fa-envelope"></i> 
-                        <p>kmita.katarzyna.a@gmail.com</p>
-                    </div>
-                    <p>Connect with me on:</p>
-                    <div class="flex">
-                        <i class="fa-brands fa-github"></i>
-                        <i class="fa-brands fa-linkedin"></i>
-                    </div>
-                    <p>Downloadable resume:</p>
-                    <div class="flex">
-                        <i class="fa-solid fa-file-pdf"></i>
+            <div class="main-text">
+                <p>I would love to join your team to contribute my diverse skills, tenacity and enthusiasm!
+                    <br>Let's connect!
+                </p>
+                <div class="contact-form-container">
+                    <div class="contact-form" method="post">
+                        <form action="src/contact-form-handler.php">
+                            <div class="flex">
+                                <div class="form-col">
+                                    <input type="text" name="name" placeholder="Name" required>
+                                    <input type="email" name="email" placeholder="Email" required>
+                                    <input type="text" name="subject" placeholder="Subject">
+                                </div>
+                                <div class="form-col">
+                                    <textarea rows="5" name="message" placeholder="Message" required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="hero-btn"><p>SEND</p></button>
+                        </form>    
                     </div>
                 </div>
+                <div class="flex">
+                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-solid fa-envelope"></i> 
+                    <p>kmita.katarzyna.a@gmail.com</p>
+                </div>
+                <p>Downloadable resume:
+                    <i class="fa-solid fa-file-pdf"></i>
+                </p>
             </div>
             <div class="section-arrows">
                 <a href="#projects"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>

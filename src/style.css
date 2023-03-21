@@ -597,3 +597,44 @@ section.projects {
   background-clip: text;
   -webkit-text-stroke: 6px transparent;
 }
+
+/* Contact Form */
+
+.contact-form-container {
+  margin: 0;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea{
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-bottom: var(--off-black) solid 1px;
+}
+
+.contact-form textarea {
+  width: 100%;
+  min-width: 500px;
+}
+
+.contact-form button {
+  margin: 10px 0;
+  background-color: var(--main);
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-family: var(--display);
+}
+
+.contact-form p {
+  padding: 0;
+}
