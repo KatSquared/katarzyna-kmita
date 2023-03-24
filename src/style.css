@@ -31,7 +31,7 @@ body {
   background-color: var(--off-white);
 }
 
-p{
+p, a{
   font-family: var(--text);
   font-size: 1.3rem;
   line-height: 1.9rem;
@@ -44,7 +44,7 @@ ul {
   list-style: none;
 }
 
-li, a {
+li {
   font-family: var(--display);
   text-decoration: none;
 }
@@ -218,8 +218,8 @@ nav i:hover, nav a:hover{
   -webkit-text-stroke: 0px transparent;
 }
 
-/* MAIN SECTIONS */
 
+/* MAIN SECTIONS */
 
 .wrapper {
   position: absolute;
@@ -232,20 +232,26 @@ nav i:hover, nav a:hover{
   align-items: flex-end;
 }
 
-
 section {
-  margin: 0 10%;
+  margin: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 750px;
+}
+
+.main-text {
+  background-color: var(--transparent-white);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 30px;
+  margin-top: 50px;
 }
 
 section h1 {
-  margin-top: 50px;
   margin-bottom: 25px;
   margin-left: -10px;
+  margin-top: -15px;
   -webkit-text-stroke: 7px transparent !important;
 }
 
@@ -263,6 +269,7 @@ section p {
 }
 .section-arrows {
   margin-top: 10px;
+  margin-bottom: -15px;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -271,7 +278,7 @@ section p {
 .section-arrows i {
   font-size: 2.5rem;
   -webkit-text-stroke: 5px transparent;
-  transform: translateX(-50%);
+  transform: translateX(-25%);
 }
 
 .section-arrows i:hover{
@@ -283,11 +290,73 @@ section p {
   margin-top: 100vh;
 }
 
-/* education */
 
-.main-text {
-  margin-top: -7px;
+@media screen and (min-width: 1700px) {
+  section {
+    max-width: 750px;
+    margin: 0 10%;
+  }
+  .section-arrows i {
+    transform: translateX(-50%);
+  }
+  .main-text {
+    padding: 0;
+    border-radius: 0;
+  }
+  section h1 {
+    margin-top: -25px;
+  }
+  .section-arrows {
+    margin-top: 15px;
+  }
 }
+@media screen and (min-width: 1300px) and (max-width: 1699px) {
+  section {
+    max-width: 45%;
+    margin: 0 10%;
+  }
+  .section-arrows i {
+    transform: translateX(-25%);
+  }
+  .main-text {
+    padding: 40px;
+    border-radius: 30px;
+  }
+  section h1 {
+    margin-top: -25px;
+  }
+  .section-arrows {
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 1299px) {
+  section {
+    max-width: 600px;
+    margin: 0 10%;
+  }
+  .section-arrows i {
+    transform: translateX(-25%);
+  }
+  .main-text {
+    padding: 40px;
+    border-radius: 30px;
+  }
+  .section-arrows {
+    margin-top: 15px;
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .main-text {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+}
+
+
+
+/* education & experience */
 
 .description {
   margin-top: 10px;
@@ -312,7 +381,7 @@ section p {
   gap: 5px;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .main-text .flex p {
   line-height: 22px;
@@ -528,6 +597,24 @@ section.projects {
 }
 .img-overlay i {
   font-size: 3rem;
+  background: var(--off-grey);
+  padding: 10px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 8px transparent;
+  transition: all 250ms;
+}
+.img-overlay .flex:hover i {
+  background: linear-gradient(
+    -45deg, #b44285, #111622, #ff00f3, 
+    #32ff73, #392149, #00bbbb, #b44285 95% 
+  );
+  background-size: 400%;
+  padding: 10px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 8px transparent;
+  animation: rainbow-letters 40s linear infinite;
 }
 .img-overlay p {
   text-align: center;
@@ -579,16 +666,12 @@ section.projects {
 .contact h1 {
   margin-bottom: 35px;
 }
-.contact img {
-  width: 200px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 30px;
-  filter: saturate(140%) brightness(110%) hue-rotate(-5deg);
+.contact p {
+  margin-bottom: 5px;
 }
 
-.contact i:not(.fa-arrow-left-long, .fa-arrow-right-long) {
-  padding: 10px;
+.contact i:not(.fa-arrow-left-long, .fa-arrow-right-long, .fa-file-pdf) {
+  padding: 5px;
   font-size: 2rem;
   background: linear-gradient(
     -45deg, #b44285, #00bbbb 
@@ -597,42 +680,94 @@ section.projects {
   background-clip: text;
   -webkit-text-stroke: 6px transparent;
 }
+.contact i:not(.fa-arrow-left-long, .fa-arrow-right-long, .fa-file-pdf, .fa-envelope):hover {
+  background: var(--off-grey);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 6px transparent;
+}
+.email {
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+.email:hover{
+  color: var(--off-grey);
+}
+.email:hover i {
+  background: var(--off-grey);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 6px transparent;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--off-black);
+  background: var(--main);
+  padding: 15px 20px;
+  cursor: pointer;
+}
+button:hover {
+  color: var(--off-white);
+  background: linear-gradient(
+    -45deg, #b44285, #111622, #ff00f3, 
+    #22aa4d, #392149, #009c9c, #b44285 95% 
+  );
+  background-size: 400%;
+  animation: rainbow-letters 40s linear infinite;
+  transition: all 250ms ease-out;
+}
+.secondary-btn:hover i {
+  color: var(--off-white);
+}
+button i {
+  color: var(--off-black);
+  margin: 0 5px;
+  transition: all 250ms ease-out;
+}
 
 /* Contact Form */
 
 .contact-form-container {
   margin: 0;
+  margin-top: 15px;
 }
 
-form {
+form .flex {
+  align-items: flex-start !important;
+}
+
+.form-col {
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
+  gap: 5px
 }
 
 .contact-form input, .contact-form textarea{
   width: 100%;
   padding: 10px;
   outline: none;
-  border: none;
+  border: var(--off-black) solid 1px;
+  border-radius: 20px;
   font-size: 16px;
-  border-bottom: var(--off-black) solid 1px;
+  background-color: var(--off-white);
+  color: var(--off-black);
 }
-
 .contact-form textarea {
   width: 100%;
-  min-width: 500px;
+  min-width: 395px;
+  min-height: 180px;
 }
 
-.contact-form button {
-  margin: 10px 0;
-  background-color: var(--main);
-  border: none;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-family: var(--display);
+form button {
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 600;
 }
 
 .contact-form p {

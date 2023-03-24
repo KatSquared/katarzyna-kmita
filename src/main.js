@@ -63,6 +63,32 @@ function onWindowResize() {
   outlineCamera.updateProjectionMatrix();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  let flowerModel = outlineScene.getObjectByName('flower');
+  if (flowerModel) {
+      if (window.innerWidth <= 1700) {
+        outlineScene.remove(flowerModel);
+      }
+  }
+
+  if (sectionMeshes.length >= 4) {
+    for(const mesh of sectionMeshes) {
+      if (window.innerWidth <= 1200)
+        scene.remove(mesh);
+      if (window.innerWidth <= 1500 && window.innerWidth > 1200) {
+        mesh.position.x = 15;
+        mesh.position.z = 0;
+      }
+      if (window.innerWidth <= 1700 && window.innerWidth > 1500) {
+        mesh.position.x = 8;
+        mesh.position.z = -7;
+      }
+      if (window.innerWidth > 1700) {
+        mesh.position.x = 7;
+        mesh.position.z = -10;
+      }
+    }
+  }
 }
 window.addEventListener("resize", onWindowResize, false);
 
@@ -115,37 +141,40 @@ iridescenceLookUp.boost = 5;
 //
 // FLOWER
 //
-glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
-  const flowerModel = gltf.scene;
-  flowerModel.name = 'flower';
-  flowerModel.position.set(-10, -32, 0);
-  flowerModel.scale.set(2, 2, 2);
-  flowerModel.rotation.set(0.3, 270, -0.2)
-  outlineScene.add(flowerModel); 
+// only loading the flower for the desktop version 
+if (window.innerWidth > 1700) {
+  glbLoader.load('src/models/daisy_flower.glb', (gltf) => {
+    const flowerModel = gltf.scene;
+    flowerModel.name = 'flower';
+    flowerModel.position.set(-10, -32, 0);
+    flowerModel.scale.set(2, 2, 2);
+    flowerModel.rotation.set(0.3, 270, -0.2)
+    outlineScene.add(flowerModel); 
 
-  // material adjustments
-  const flowerMaterial = flowerModel.getObjectByName('Object_9').material;
+    // material adjustments
+    const flowerMaterial = flowerModel.getObjectByName('Object_9').material;
 
-  flowerMaterial.color = { r: 1, g: 0, b: 1}
-  flowerMaterial.map = undefined;
+    flowerMaterial.color = { r: 1, g: 0, b: 1}
+    flowerMaterial.map = undefined;
 
-  flowerMaterial.emissive = {r: 0.80, g: 1, b: 0.85};
-  flowerMaterial.emissiveMap = textureLoader.load('src/img/texture4.jpg');
-  flowerMaterial.emissiveIntensity = 1;
+    flowerMaterial.emissive = {r: 0.80, g: 1, b: 0.85};
+    flowerMaterial.emissiveMap = textureLoader.load('src/img/texture4.jpg');
+    flowerMaterial.emissiveIntensity = 1;
 
-  flowerMaterial.metalness = 1;
-  flowerMaterial.roughness  = 0.25;
-  flowerMaterial.reflectivity = 1;
-  flowerMaterial.transmission = 1;
-  flowerMaterial.iridescence = 1;
-  flowerMaterial.attenuationColor = {r: 1, g: 0, b: 1};
-  
-  flowerMaterial.sheen = 1;
-  flowerMaterial.sheenRoughness = 1;
-  
-}, undefined, function (error) {
-console.error(error);
-});
+    flowerMaterial.metalness = 1;
+    flowerMaterial.roughness  = 0.25;
+    flowerMaterial.reflectivity = 1;
+    flowerMaterial.transmission = 1;
+    flowerMaterial.iridescence = 1;
+    flowerMaterial.attenuationColor = {r: 1, g: 0, b: 1};
+    
+    flowerMaterial.sheen = 1;
+    flowerMaterial.sheenRoughness = 1;
+    
+  }, undefined, function (error) {
+  console.error(error);
+  });
+}
 
 
 //
@@ -169,109 +198,108 @@ glbLoader.load('src/models/splash.glb', (gltf) => {
 console.error(error);
 });
 
-
-const objectsDistance = 50;
 const sectionMeshes = [];
+const objectsDistance = 50;
 
-//
-// SMILE ICON
-//
-glbLoader.load('src/models/smile_icon.glb', (gltf) => {
-  const smileModel = gltf.scene;
-  smileModel.position.set(20, -9, 44);
-  smileModel.rotateY(1.5)
-  smileModel.scale.set(70, 70, 70);
-  scene.add(smileModel); 
+// only loading icons for the desktop & tablet version 
+if (window.innerWidth > 1200) {
+  //
+  // SMILE ICON
+  //
+  glbLoader.load('src/models/smile_icon.glb', (gltf) => {
+    const smileModel = gltf.scene;
+    smileModel.position.set(20, -9, 44);
+    smileModel.rotateY(1.5)
+    smileModel.scale.set(70, 70, 70);
+    // only adding the big smile for the desktop & tablet version 
+    if (window.innerWidth > 900) 
+      scene.add(smileModel); 
 
-  let smallSmile = smileModel.clone();
-  smallSmile.name = "smile";
-  smallSmile.position.set(2, 22, -10);
-  smallSmile.rotateY(1.5)
-  smallSmile.position.y -= objectsDistance * 1.2 * 5;
-  scene.add(smallSmile)
+    let smallSmile = smileModel.clone();
+    smallSmile.name = "smile";
+    smallSmile.position.set(2, 22, -10);
+    smallSmile.rotateY(1.5)
+    smallSmile.position.y -= objectsDistance * 1.2 * 5;
+    scene.add(smallSmile)
 
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial;
+    scene.traverse(function(object) {
+      if (object.material) 
+        object.material = iridescentMaterial;
+    });
+
+    sectionMeshes.push(smallSmile);
+    
+  }, undefined, function (error) {
+  console.error(error);
   });
+  //
+  // EDUCATION ICON
+  //
+  glbLoader.load('src/models/education.glb', (gltf) => {
+    const educationModel = gltf.scene;
+    educationModel.name = "education";
+    educationModel.position.set(2.5, -5, -10);
+    educationModel.position.y -= objectsDistance * 1.5;
+    educationModel.scale.set(8, 11, 8);
+    educationModel.rotateX(0.3);
+    scene.add(educationModel); 
 
-  sectionMeshes.push(smallSmile);
-  
-}, undefined, function (error) {
-console.error(error);
-});
+    scene.traverse(function(object) {
+      if (object.material) 
+        object.material = iridescentMaterial;
+    });
 
-//
-// EDUCATION ICON
-//
-glbLoader.load('src/models/education.glb', (gltf) => {
-  const educationModel = gltf.scene;
-  educationModel.name = "education";
-  educationModel.position.set(2.5, -5, -10);
-  educationModel.position.y -= objectsDistance * 1.5;
-  educationModel.scale.set(8, 11, 8);
-  educationModel.rotateX(0.3);
-  scene.add(educationModel); 
-
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial;
+    sectionMeshes.push(educationModel);
+    
+  }, undefined, function (error) {
+  console.error(error);
   });
+  //
+  // COG ICON
+  //
+  glbLoader.load('src/models/cog.glb', (gltf) => {
+    const cogModel = gltf.scene;
+    cogModel.name = "cog";
+    cogModel.position.set(3, 5, -10);
+    cogModel.position.y -= objectsDistance *1.2 * 3;
+    cogModel.scale.set(6.5, 7, 6.5);
+    cogModel.rotateX(1.5);
+    scene.add(cogModel); 
 
-  sectionMeshes.push(educationModel);
-  
-}, undefined, function (error) {
-console.error(error);
-});
+    scene.traverse(function(object) {
+      if (object.material) 
+        object.material = iridescentMaterial;
+    });
 
-
-//
-// COG ICON
-//
-glbLoader.load('src/models/cog.glb', (gltf) => {
-  const cogModel = gltf.scene;
-  cogModel.name = "cog";
-  cogModel.position.set(3, 5, -10);
-  cogModel.position.y -= objectsDistance *1.2 * 3;
-  cogModel.scale.set(6.5, 7, 6.5);
-  cogModel.rotateX(1.5);
-  scene.add(cogModel); 
-
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial;
+    sectionMeshes.push(cogModel);
+    
+  }, undefined, function (error) {
+  console.error(error);
   });
+  //
+  // LAPTOP ICON
+  //
+  glbLoader.load('src/models/laptop.glb', (gltf) => {
+    const laptopModel = gltf.scene;
+    laptopModel.name = "laptop";
+    laptopModel.position.set(7, -2, -10);
+    laptopModel.position.y -= objectsDistance * 1.3 * 2;
+    laptopModel.scale.set(0.2, 0.2, 0.2);
+    laptopModel.rotateX(0.3);
+    laptopModel.rotateY(0.2)
+    scene.add(laptopModel); 
 
-  sectionMeshes.push(cogModel);
-  
-}, undefined, function (error) {
-console.error(error);
-});
+    scene.traverse(function(object) {
+      if (object.material) 
+        object.material = iridescentMaterial
+    });
+    
+    sectionMeshes.push(laptopModel);
 
-//
-// LAPTOP ICON
-//
-glbLoader.load('src/models/laptop.glb', (gltf) => {
-  const laptopModel = gltf.scene;
-  laptopModel.name = "laptop";
-  laptopModel.position.set(7, -2, -10);
-  laptopModel.position.y -= objectsDistance * 1.3 * 2;
-  laptopModel.scale.set(0.2, 0.2, 0.2);
-  laptopModel.rotateX(0.3);
-  laptopModel.rotateY(0.2)
-  scene.add(laptopModel); 
-
-  scene.traverse(function(object) {
-    if (object.material) 
-      object.material = iridescentMaterial
+  }, undefined, function (error) {
+  console.error(error);
   });
-  
-  sectionMeshes.push(laptopModel);
-
-}, undefined, function (error) {
-console.error(error);
-});
-
+}
 
 
 
@@ -305,7 +333,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   // icons rotation
-  if (sectionMeshes.length >= 4) {
+  if (sectionMeshes.length >= 4 && window.innerWidth > 1200) {
     step += speed;
     for(const mesh of sectionMeshes)
     {
@@ -331,13 +359,15 @@ function animate() {
     flowerModel.rotation.x = 0.00005 * scrollY + 0.3;
     flowerModel.rotation.y = - 0.00005 * scrollY - 0.1 + 270;
   }
-
-  // sticky mouse parallax 
-  const parallaxX = cursor.x;
-  const parallaxY = - cursor.y;
   
-  cameraGroup.position.x += (parallaxX - cameraGroup.position.x);
-  cameraGroup.position.y += (parallaxY - cameraGroup.position.y);
+  // sticky mouse parallax 
+  if (window.innerWidth > 900) {
+    const parallaxX = cursor.x;
+    const parallaxY = - cursor.y;
+    
+    cameraGroup.position.x += (parallaxX - cameraGroup.position.x);
+    cameraGroup.position.y += (parallaxY - cameraGroup.position.y);
+  }
 
   // Animate camera
   outlineCamera.position.y = -scrollY / window.innerHeight * objectsDistance - 7.3;
