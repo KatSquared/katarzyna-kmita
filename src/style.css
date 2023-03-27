@@ -32,9 +32,9 @@ body {
 }
 
 p, a{
+  font-size: 1.2rem;
+  line-height: 1.7rem;
   font-family: var(--text);
-  font-size: 1.3rem;
-  line-height: 1.9rem;
   font-stretch:expanded;
   text-decoration: none;
   color: var(--off-black);
@@ -79,8 +79,8 @@ canvas {
 nav {
   position: fixed;
   z-index: 40;
-  right: 45px;
-  top: 35px;
+  right: 15px;
+  top: 12px;
 }
 
 .menu-icon {
@@ -89,8 +89,8 @@ nav {
 }
 
 nav i, nav a {
-  font-size: 3rem; 
-  -webkit-text-stroke: 6px transparent !important;
+  font-size: 2.5rem; 
+  -webkit-text-stroke: 5px transparent !important;
   animation: none !important;
 }
 
@@ -116,14 +116,15 @@ nav i:hover, nav a:hover{
 }
 
 .close-icon {
-  margin-top: 29px;
-  margin-right: 47px;
+  margin-top: 15px;
+  margin-right: 22px;
   background-color: var(--off-white) !important;
 }
 
 .close-icon i{
-  font-size: 3.8rem;
-  padding: 10px;
+  font-size: 3.35rem;
+  padding: 3px;
+  background-color: transparent;
 }
 
 .menu-links ul li{
@@ -134,7 +135,7 @@ nav i:hover, nav a:hover{
 }
 
 .menu-links ul{
-  padding: 50px;
+  padding: 40px;
   margin-bottom: 40px;
 }
 
@@ -143,6 +144,29 @@ nav i:hover, nav a:hover{
   color: var(--off-white);
 }
 
+@media screen and (min-width: 900px) {
+  nav {
+    top: 35px;
+    right: 35px
+  }
+  nav i, nav a {
+    font-size: 3rem;
+    -webkit-text-stroke: 6px transparent !important;
+  }
+  .close-icon {
+    margin-top: 31px;
+    margin-right: 35px;
+    background-color: var(--off-white) !important;
+  }
+  .close-icon i {
+    font-size: 3.8rem;
+    padding: 10px;
+    margin: 0;
+  }
+  .menu-links ul{
+    padding: 38px;
+  }
+}
 
 /* INTRO */
 
@@ -249,9 +273,10 @@ section {
 }
 
 section h1 {
+  font-size: 3.2rem;
   margin-bottom: 25px;
   margin-left: -10px;
-  margin-top: -15px;
+  margin-top: -10px;
   -webkit-text-stroke: 7px transparent !important;
 }
 
@@ -351,6 +376,13 @@ section p {
   .main-text {
     background-color: transparent;
     backdrop-filter: none;
+  }
+  p, a{
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+  }
+  section h1 {
+    font-size: 3.2rem;
   }
 }
 
@@ -544,7 +576,7 @@ section p {
 section.projects {
   max-width: 100vw;
   margin: 0;
-  padding: 0 5vw;
+  padding: 0;
   align-items: center;
   background-color: var(--transparent-white);
   backdrop-filter: blur(5px);
@@ -553,6 +585,10 @@ section.projects {
 
 .projects h1 {
   margin-bottom: 30px;
+  font-size: 2.5rem;
+  -webkit-text-stroke: 6.5px transparent !important;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .flex {
@@ -560,6 +596,9 @@ section.projects {
   gap: 30px;
   justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 60vh;
+  overflow-y: scroll;
 }
 
 .project-container {
@@ -577,34 +616,20 @@ section.projects {
 
 .img-overlay {
   width: 100%;
-  aspect-ratio: 2.15/1;
-  background-color: var(--transparent-white);
-  opacity: 0;
-  z-index: 10;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
+  margin-top: 5px;
 }
-.img-container:hover .img-overlay {
-  opacity: 1;
-}
+
 .img-overlay .flex {
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   gap: 0;
 }
 .img-overlay i {
-  font-size: 3rem;
-  background: var(--off-grey);
+  font-size: 2.5rem;
   padding: 10px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-stroke: 8px transparent;
-  transition: all 250ms;
-}
-.img-overlay .flex:hover i {
   background: linear-gradient(
     -45deg, #b44285, #111622, #ff00f3, 
     #32ff73, #392149, #00bbbb, #b44285 95% 
@@ -618,20 +643,19 @@ section.projects {
 }
 .img-overlay p {
   text-align: center;
-}
+  margin-top: -5px;
+  margin-bottom: 2px;
+}  
 
 .project-container img {
+  position: relative;
   width: 100%;
+  min-width: 385px;
   aspect-ratio: 2.15/1;
   object-fit: cover;
-  position: absolute;
   top: 0;
   left: 0;
 }
-.img-container:hover img {
-  filter: blur(1px);
-}
-
 
 .project-container p {
   min-width: 200px;
@@ -643,7 +667,6 @@ section.projects {
 
 .technologies {
   margin-top: 15px;
-  margin-bottom: 30px;
 }
 .technologies ul {
   justify-content: flex-start;
@@ -659,13 +682,64 @@ section.projects {
   white-space: nowrap;
 }
 
+@media screen and (min-width: 900px) {
+  .projects h1 {
+    font-size: 3.5rem;
+    -webkit-text-stroke: 8px transparent !important;
+    letter-spacing: 0;
+  }
+  .img-overlay {
+    width: 100%;
+    aspect-ratio: 2.15/1;
+    background-color: var(--transparent-white);
+    opacity: 0;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .img-container:hover .img-overlay {
+    opacity: 1;
+  }
+  .img-overlay .flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .img-overlay i {
+    font-size: 3rem;
+    background: var(--off-grey);
+    padding: 10px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 7px transparent;
+    transition: all 250ms;
+  }
+  .img-overlay .flex:hover i {
+    background: linear-gradient(
+      -45deg, #b44285, #111622, #ff00f3, 
+      #32ff73, #392149, #00bbbb, #b44285 95% 
+    );
+    background-size: 400%;
+    padding: 10px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 8px transparent;
+    animation: rainbow-letters 40s linear infinite;
+  }
+  .project-container img {
+    position: absolute;
+  }
+  .img-container:hover img {
+    filter: blur(1px);
+  }  
+}
 
 
 /* contact */
 
-.contact h1 {
-  margin-bottom: 35px;
-}
 .contact p {
   margin-bottom: 5px;
 }
@@ -699,6 +773,9 @@ section.projects {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-stroke: 6px transparent;
+}
+span.email {
+  display: none;
 }
 
 button {
@@ -734,11 +811,16 @@ button i {
 
 .contact-form-container {
   margin: 0;
-  margin-top: 15px;
+  margin: 15px 0;
 }
 
 form .flex {
   align-items: flex-start !important;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flex.form-flex {
+  flex-direction: column;
 }
 
 .form-col {
@@ -760,7 +842,6 @@ form .flex {
 }
 .contact-form textarea {
   width: 100%;
-  min-width: 395px;
   min-height: 180px;
 }
 
@@ -772,4 +853,20 @@ form button {
 
 .contact-form p {
   padding: 0;
+}
+
+@media screen and (min-width: 1700px) {
+  .contact-form textarea {
+    min-width: 450px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .flex.form-flex {
+    flex-direction: row !important;
+  }
+  span.email {
+    letter-spacing: -0.5px;
+    display: inline;
+  }
 }
