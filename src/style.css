@@ -284,7 +284,6 @@ nav i:hover, nav a:hover{
   -webkit-text-stroke: 0px transparent;
 }
 
-
 @media screen and (min-width: 1400px) {
   .intro h1 {
     font-size: 4.2rem;
@@ -819,7 +818,6 @@ section.projects {
   border-radius: 30px;
   white-space: nowrap;
 }
-
 
 /* graphic projects */
 
