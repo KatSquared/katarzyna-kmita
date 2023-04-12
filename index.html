@@ -25,7 +25,20 @@
 </svg>
 
 
-<nav>
+<!------------ NAV ------------>
+
+<nav class="desktop-nav">
+    <ul class="flex">
+        <li><a href="#education">EDUCATION</a></li>
+        <li><a href="#experience">EXPERIENCE</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#web-projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="" class="resume">RESUME <i class="fa-solid fa-arrow-right-long" style="animation: none"></i> <i class="fa-regular fa-file-pdf"></i></a></li>
+    </ul>
+</nav>
+
+<nav class="mobile-nav">
     <div class="menu-icon">
         <i class="fa-solid fa-bars rainbow-letters" onclick="showMenu()"></i>
     </div>
@@ -39,11 +52,16 @@
             <li><a href="#education" class="rainbow-letters">EDUCATION</a></li>
             <li><a href="#experience" class="rainbow-letters">EXPERIENCE</a></li>
             <li><a href="#skills" class="rainbow-letters">SKILLS</a></li>
-            <li><a href="#projects" class="rainbow-letters">PROJECTS</a></li>
-            <li><a href="#contact" class="rainbow-letters">CONTACT</a></li>
+            <li><a href="#web-projects" class="rainbow-letters">WEB PROJECTS</a></li>
+            <li><a href="#graphic-projects" class="rainbow-letters">GRAPHIC PROJECTS</a></li>
+            <li><a href="#contact" class="rainbow-letters">CONTACT / RESUME</a></li>
         </ul>
     </div>
 </nav>
+
+
+<!------------ INTRO ------------>
+
 
 <main>
     <div class="intro" id="intro-overlay">
@@ -54,6 +72,11 @@
                     aesthetics and functionality. 
                    I've got a keen interest in cognitive psychology that informs my design choices and continuous self-improvement.
                 </p>
+                <div class="flex">
+                    <a href="https://github.com/KatSquared" target="_blank">  <i class="fa-brands fa-github rainbow-letters"></i></a>
+                    <a href="index.html" target="_blank"><i class="fa-brands fa-linkedin rainbow-letters"></i></a>
+                    <a href="mailto:kmita.katarzyna.a@gmail.com"><i class="fa-solid fa-envelope rainbow-letters"></i></a>
+                </div>
             </div>
             <div class="intro-arrow">
                 <a href="#education"><i class="fa-solid fa-arrow-right-long rainbow-letters rainbow-letters"></i></a>
@@ -61,100 +84,204 @@
         </div>
     </div>
 
+
+<!------------ EDUCATION ------------>
+
+
     <div class="wrapper" id="wrapper">
         <section class="education first" id="education">
-            <h1 class="rainbow-letters">Education</h1>
             <div class="main-text">
-                <p><i class="fa-solid fa-atom rainbow-letters"></i>2013-2017 <span>--</span><span class="bold"> BE in Nanotechnology </span><span>--</span> Gdańsk University of Technology</p>
-                <p><i class="fa-solid fa-pen-nib rainbow-letters"></i>2017-2020 <span>--</span><span class="bold"> BA in Graphic Design </span><span>--</span> University of the Arts Poznań</p>
+                <h1 class="rainbow-letters">Education</h1>
+                <div class="flex">
+                    <i class="fa-solid fa-atom rainbow-letters"></i>
+                    <p>2013-2017 <span>--</span><span class="bold"> BE in Nanotechnology </span><span>--</span> Gdańsk University of Technology</p>
+                </div>
+                <div class="flex">
+                    <i class="fa-solid fa-pen-nib rainbow-letters"></i>
+                    <p>2017-2020 <span>--</span><span class="bold"> BA in Graphic Design </span><span>--</span> University of the Arts Poznań</p>
+                </div>
                 <p class="description">What has always fascinated me is the underlying essence of reality, design and human behavior.
                     That is my favorite part of web development - applying this understanding to the creation of
                     products that help businesses grow, educate and connect people.
                 </p>
-            </div>
-            <div class="section-arrows">
-                <a href="#intro-overlay"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
-                <a href="#experience"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
+                <div class="section-arrows">
+                    <a href="#intro-overlay"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
+                    <a href="#experience"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
+                </div>
             </div>
         </section>
 
+
+<!------------EXPERIENCE ------------>
+
+
         <section class="experience" id="experience">
-            <h1 class="rainbow-letters">Experience</h1>
             <div class="main-text">
-                <p><i class="fa-solid fa-city rainbow-letters"></i> Since 2019 <span>--</span> Project Manager <span>--</span> Violet-Arch Architecture Firm</p>
+                <h1 class="rainbow-letters">Experience</h1>
+                <div class="flex">
+                    <i class="fa-solid fa-city rainbow-letters"></i>
+                    <p> Since 2019 <span>--</span> Project Manager <span>--</span> Violet-Arch Architecture Firm</p>
+                </div>
+                <p class="description">
+                    I have created a custom-scripted Google Sheets logging system to keep track of the status of each task, 
+                    which has <span>shortened project completion by 50% and improved employee accountability</span>.
+                </p>
                 <p class="description">
                     My responsibilities have included coordination and division of work between architects and contractors <span>across 20+ ongoing projects</span>,  
                     as well as preparing and applying for documents required by local law. I have always ensured <span>timely delivery and high quality</span> of documentation.
                 </p>
-                <p class="description">
-                    I have created a custom-scripted Google Sheets logging system to keep track of the status of each task required for project completion, 
-                    which has <span>shortened project completion by 50% and improved employee accountability</span>.
-                </p>
-            </div>
-            <div class="section-arrows">
-                <a href="#education"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
-                <a href="#skills"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
+                <div class="section-arrows">
+                    <a href="#education"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
+                    <a href="#skills"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
+                </div>
             </div>
         </section>
 
+
+<!------------ SKILLS  ------------>
+
+
         <section class="skills" id="skills">
-            <h1 class="rainbow-letters">Skills</h1>
-            <div class="grid">
-                <div class="icon-row">
-                    <i class="fa-brands fa-js" data-after="JavaScipt"></i>
-                    <div class="three-js-container" data-after="Three.js">
-                        <svg class="three-js" fill="none" stroke-linecap="square" stroke-miterlimit="10" version="1.1" viewBox="0 0 226.77 226.77" xmlns="http://www.w3.org/2000/svg">
-                            <g transform="translate(8.964 4.2527)" fill-rule="evenodd" 
-                            stroke="#8b93aa" stroke-linecap="butt" stroke-linejoin="round" stroke-width="11">
-                            <use xlink:href="#symbol-id"></use>
-                            <path d="m63.02 200.61-43.213-174.94 173.23 49.874z"/>
-                            <path d="m106.39 50.612 21.591 87.496-86.567-24.945z"/>
-                            <path d="m84.91 125.03-10.724-43.465 43.008 12.346z"/>
-                            <path d="m63.458 38.153 10.724 43.465-43.008-12.346z"/>
-                            <path d="m149.47 62.93 10.724 43.465-43.008-12.346z"/>
-                            <path d="m84.915 125.06 10.724 43.465-43.008-12.346z"/>
-                            </g>
-                        </svg>
+            <div class="main-text">
+                <h1 class="rainbow-letters">Skills</h1>
+                <div class="grid">
+                    <div class="icon-row">
+                        <i class="fa-brands fa-js" data-after="JavaScipt"></i>
+                        <div class="three-js-container" data-after="Three.js">
+                            <svg class="three-js" fill="none" stroke-linecap="square" stroke-miterlimit="10" version="1.1" viewBox="0 0 226.77 226.77" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(8.964 4.2527)" fill-rule="evenodd" 
+                                stroke="#8b93aa" stroke-linecap="butt" stroke-linejoin="round" stroke-width="11">
+                                <use xlink:href="#symbol-id"></use>
+                                <path d="m63.02 200.61-43.213-174.94 173.23 49.874z"/>
+                                <path d="m106.39 50.612 21.591 87.496-86.567-24.945z"/>
+                                <path d="m84.91 125.03-10.724-43.465 43.008 12.346z"/>
+                                <path d="m63.458 38.153 10.724 43.465-43.008-12.346z"/>
+                                <path d="m149.47 62.93 10.724 43.465-43.008-12.346z"/>
+                                <path d="m84.915 125.06 10.724 43.465-43.008-12.346z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="glsl" data-after="WebGL Shader Language">
+                            <p>GL</p>
+                            <p>SL</p>
+                        </div>
                     </div>
-                    <div class="glsl" data-after="WebGL Shader Language">
-                        <p>GL</p>
-                        <p>SL</p>
+                    <div class="icon-row">
+                        <i class="fa-brands fa-git-alt" data-after="Git"></i><i class="fa-brands fa-github" data-after="Github"></i>
+                        <div class="npm-container" data-after="Node Package Manager">
+                            <i class="fa-brands fa-npm"></i>
+                        </div>
+                    </div>
+                    <div class="icon-row">
+                        <i class="fa-brands fa-html5" data-after="HTML"></i><i class="fa-brands fa-css3-alt" data-after="CSS"></i><i class="fa-brands fa-bootstrap" data-after="Bootstrap"></i>
+                        <div class="adobe-container" data-after="Adobe Suite">
+                            <svg class="adobe" role="img"  fill="none" stroke-linecap="square" stroke-miterlimit="10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <use xlink:href="#symbol-id"></use>
+                                <path fill-rule="evenodd" 
+                                stroke="#8b93aa" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2" d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-                <div class="icon-row">
-                    <i class="fa-brands fa-git-alt" data-after="Git"></i><i class="fa-brands fa-github" data-after="Github"></i>
-                    <div class="npm-container" data-after="Node Package Manager">
-                        <i class="fa-brands fa-npm"></i>
-                    </div>
+                <div class="section-arrows">
+                    <a href="#experience"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
+                    <a href="#web-projects"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
                 </div>
-                <div class="icon-row">
-                    <i class="fa-brands fa-html5" data-after="HTML"></i><i class="fa-brands fa-css3-alt" data-after="CSS"></i><i class="fa-brands fa-bootstrap" data-after="Bootstrap"></i>
-                    <div class="adobe-container" data-after="Adobe Suite">
-                        <svg class="adobe" role="img"  fill="none" stroke-linecap="square" stroke-miterlimit="10" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <use xlink:href="#symbol-id"></use>
-                            <path fill-rule="evenodd" 
-                            stroke="#8b93aa" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2" d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="section-arrows">
-                <a href="#experience"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
-                <a href="#projects"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
             </div>
         </section>
-        
-        <section class="projects" id="projects">
-            <h1 class="rainbow-letters">Cool projects</h1>
+
+
+<!------------ WEB PROJECTS ------------>
+
+
+        <section class="projects web-projects" id="web-projects">
+            <h1 class="rainbow-letters">web projects</h1>
             <div class="flex">
                 <div class="project-container">
                     <div>
-                        <img src="/src/img/quote-merger.png" alt="Quote merger website screenshot">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Adipisci dignissimos sapiente consequatur reprehenderit expedita. 
-                            Exercitationem ducimus eveniet aliquid, voluptatem 
-                            eligendi sit voluptatum ipsam. 
+                        <div class="img-container">
+                            <img src="/src/img/bathbombs.png" alt="Bathbombs website screenshot">
+                            <div class="img-overlay overlay-desktop">
+                                <a href="https://katsquared.github.io/bathbombs/" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-eye"></i>
+                                        <p>View project</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/KatSquared/bathbombs" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-brands fa-github" data-after="Github"></i>
+                                        <p>Source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <h2>E-COMMERCE WEBSITE</h2>
+                        <p class="description">An e-commerce website built for a fictional bath goods company. Contains a fully 
+                            functional basket and product filter system built entirely in vanilla JS, as well as 
+                            landing page built in Three.js using 3D models.  
                         </p>
+                    </div>
+                    <div class="img-overlay overlay-mobile">
+                        <a href="https://katsquared.github.io/bathbombs/" target="_blank">
+                            <div class="flex">
+                                <i class="fa-solid fa-eye"></i>
+                                <p>View project</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/KatSquared/bathbombs" target="_blank">
+                            <div class="flex">
+                                <i class="fa-brands fa-github" data-after="Github"></i>
+                                <p>Source code</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="technologies">
+                        <ul class="flex">
+                            <li>JAVASCRIPT</li>
+                            <li>THREE.JS</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div>
+                        <div class="img-container">
+                            <img src="/src/img/quotes.png" alt="Quote merger website screenshot">
+                            <div class="img-overlay overlay-desktop">
+                                <a href="https://katsquared.github.io/quote-merger/" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-eye rainbow-letters"></i>
+                                        <p>View project</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/KatSquared/quote-merger" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                        <p>Source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <h2>API QUOTE MERGER</h2>
+                        <p class="description">This project pulls, filters, chunks and mixes up two quotes pulled from
+                            Quotable API, including proper query response management.
+                        </p>
+                    </div>
+                    <div class="img-overlay overlay-mobile">
+                        <a href="https://katsquared.github.io/quote-merger/" target="_blank">
+                            <div class="flex">
+                                <i class="fa-solid fa-eye rainbow-letters"></i>
+                                <p>View project</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/KatSquared/quote-merger" target="_blank">
+                            <div class="flex">
+                                <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                <p>Source code</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="technologies">
                         <ul class="flex">
@@ -167,56 +294,252 @@
                 </div>
                 <div class="project-container">
                     <div>
-                        <img src="/src/img/quote-merger.png" alt="Quote merger website screenshot">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Adipisci dignissimos sapiente consequatur reprehenderit expedita. 
-                            Exercitationem ducimus eveniet aliquid, voluptatem 
-                            eligendi sit voluptatum ipsam. 
-                        </p>
+                        <div class="img-container project-col">
+                            <img src="/src/img/architecture-firm.png" alt="Architecture firm website screenshot">
+                            <div class="img-overlay overlay-desktop">
+                                <a href="https://katsquared.github.io/architecture-website/" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-eye rainbow-letters"></i>
+                                        <p>View project</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/KatSquared/architecture-website" target="_blank">
+                                    <div class="flex">
+                                        <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                        <p>Source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-col">
+                            <h2>BUSINESS WEBSITE REDESIGN</h2>
+                            <p class="description">Redesign of <a style="text-decoration: underline;" href="www.architekt.stargard.pl">Pracownia Projektowa Violet-Arch old website</a> - an architectural firm
+                                I've been working for. A fully responsive design with an infinite testimonial carousel and
+                                image gallery built in vanilla JS, plus a simple PHP contact form.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="img-overlay overlay-mobile">
+                        <a href="https://katsquared.github.io/architecture-website/" target="_blank">
+                            <div class="flex">
+                                <i class="fa-solid fa-eye rainbow-letters"></i>
+                                <p>View project</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/KatSquared/architecture-website" target="_blank">
+                            <div class="flex">
+                                <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                <p>Source code</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="technologies">
                         <ul class="flex">
-                            <li>JAVASCRIPT</li>
-                            <li>REST API</li>
                             <li>HTML</li>
                             <li>CSS</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-container">
-                    <div>
-                        <img src="/src/img/quote-merger.png" alt="Quote merger website screenshot">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Adipisci dignissimos sapiente consequatur reprehenderit expedita. 
-                            Exercitationem ducimus eveniet aliquid, voluptatem 
-                            eligendi sit voluptatum ipsam. 
-                        </p>
-                    </div>
-                    <div class="technologies">
-                        <ul class="flex">
                             <li>JAVASCRIPT</li>
-                            <li>REST API</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
+                            <li>PHP</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="section-arrows">
                 <a href="#skills"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
+                <a href="#graphic-projects"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
+            </div>
+        </section>
+
+<!------------ GRAPHIC PROJECTS ------------>
+
+        <section class="projects graphic-projects" id="graphic-projects">
+            <h1 class="rainbow-letters">graphic projects</h1>
+            <div class="flex">
+                <div class="project-container">
+                    <div class="project-main">
+                        <div class="img-container">
+                            <img src="/src/img/business-card1.png" alt="Bathbombs website screenshot">
+                            <img src="/src/img/business-card2.png" alt="Bathbombs website screenshot">
+                        </div>
+                        <h2>business card & logo redesign</h2>
+                        <p class="description">Design was prepared and printed for "Pracownia Projektowa Violet-Arch". 
+                            It incorporates both the technical, engineering and artistic, creative aspect of architecture.
+                        </p>
+                        <div class="dropdown" id="dropdown">
+                            <div class="flex dropdown-btn" id="dropdown-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-content" id="dropdown-content">
+                                <p>The previous design.</p>
+                                <div class="technologies">
+                                    <ul class="flex">
+                                        <li>INDESIGN</li>
+                                        <li>ILLUSTRATOR</li>
+                                        <li>PHOTOSHOP</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-container">
+                    <div class="project-main">
+                        <div class="img-container">
+                            <img src="/src/img/signboard1.png" alt="Design of signboard in adobe illustrator">
+                        </div>
+                        <h2>light-up signboard & logo design</h2>
+                        <p class="description">Signboard advertising architect Wioletta Kmita from "Pracownia Projektowa Violet-Arch".
+                            Minimalist and elegant design based on the interplay between pure white, solid base, reflective silver letters 
+                            and white backlight providing subtle yet eye-catching effect after dusk.
+                        </p>
+                        <div class="dropdown" id="dropdown">
+                            <div class="flex dropdown-btn" id="dropdown-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-content" id="dropdown-content">
+                                <p>Just put the design here.</p>
+                                <div class="technologies">
+                                    <ul class="flex">
+                                        <li>ILLUSTRATOR</li>
+                                        <li>PHOTOPSHOP</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="appended-project project-main">
+                        <div class="img-container">
+                            <img src="/src/img/bug-icons.png" alt="Icons of various insects - a mixture of outline and fill">
+                        </div>
+                        <h2>insect icons</h2>
+                        <p class="description">Icons are designed to share a large number of curves in order to 
+                            attain maximum visual cohesion.
+                        </p>
+                        <div class="dropdown" id="dropdown">
+                            <div class="flex dropdown-btn" id="dropdown-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-content" id="dropdown-content">
+                                <p>post each one separately - if you can crop them.</p>
+                                <div class="technologies">
+                                    <ul class="flex">
+                                        <li>ILLUSTRATOR</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-container">
+                    <div class="project-main">
+                        <div class="img-container">
+                            <img src="/src/img/bug-icons.png" alt="Icons of various insects - a mixture of outline and fill">
+                        </div>
+                        <h2>logo designs</h2>
+                        <p class="description">Logo designs for an aquapark, a cafe/teahouse and my personal logo
+                        </p>
+                        <div class="dropdown" id="dropdown">
+                            <div class="flex dropdown-btn" id="dropdown-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-content" id="dropdown-content">
+                                <p>Put them there separately - in normal preview all on one png 
+                                    + short justification of design choice</p>
+                                <div class="technologies">
+                                    <ul class="flex">
+                                        <li>ILLUSTRATOR</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-main appended-project">
+                        <div class="img-container">
+                            <div style="padding:56.25% 0 0 0;position:relative;">
+                                <iframe src="https://player.vimeo.com/video/471098514?h=fef25d0d4e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ThoughtLab - Laboratorium My(ś)lenia - final project">
+                                </iframe>
+                            </div>
+                            <script src="https://player.vimeo.com/api/player.js"></script>
+                        </div>
+                        <h2>final project on cognitive biases</h2>
+                        <p class="description">Video mockup of an interactive educational website utilising
+                            interactive visual communication as an effective learning tool - final project in Graphic Design.
+                        </p>
+                        <div class="dropdown" id="dropdown">
+                            <div class="flex dropdown-btn" id="dropdown-btn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-content" id="dropdown-content">
+                                <p>The ThoughtLab's main objective is to educate on specific topics in cognitive 
+                                    psychology and related philosophical issues. These topics include intellectual 
+                                    virtues such as imagination, intellectual modesty, curiosity and many more.
+                                    <br><br>
+                                    The website targets individuals of any age group, except for children, and 
+                                    aims to reach the widest possible audience, irrespective of their background, 
+                                    culture, or personal differences. It is tailored to individuals who possess the 
+                                    ability for self-criticism and have a desire for self-education and self-improvement.
+                                    <br><br>
+                                    ThoughtLab's content aims to communicate with viewers primarily through interactive 
+                                    visual means, appealing to their subconscious mind. The textual elements serve as 
+                                    supplementary means for engaging the conscious level of cognition.
+                                </p>
+                                <div class="technologies">
+                                    <ul class="flex">
+                                        <li>AFTER EFFECTS</li>
+                                        <li>ILLUSTRATOR</li>
+                                        <li>REMIERE PRO</li>
+                                        <li>PHOTOSHOP</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-arrows">
+                <a href="#web-projects"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
                 <a href="#contact"><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
             </div>
         </section>
 
+
+<!------------ CONTACT ------------>
+
+
         <section class="contact" id="contact">
-            <h1 class="rainbow-letters">Contact me</h1>
-            <p>I would love to join your team to contribute all my skills, tenacity and enthusiasm!
-                Get in touch with me at: <br> kmita.katarzyna.a@gmail.com <br>
-                Github and LinkedIn links:
-            </p>
-            <div class="section-arrows">
-                <a href="#projects"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
-                <i class="fa-solid fa-arrow-left-long hidden"></i>
+            <div class="main-text">
+                <h1 class="rainbow-letters">Contact</h1>
+                <p>I would love to join your team and contribute my diverse skills, tenacity and enthusiasm. Let's connect!
+                </p>
+                <div class="flex connections">
+                    <a href="https://github.com/KatSquared" target="_blank">  <i class="fa-brands fa-github"></i></a>
+                    <a href="index.html" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="email" href="mailto:kmita.katarzyna.a@gmail.com"><i class="fa-solid fa-envelope"></i><span class="email"> kmita.katarzyna.a@gmail.com</span></a>
+                </div>
+                <div class="contact-form-container">
+                    <div class="contact-form" method="post">
+                        <form action="https://formspree.io/f/moqzpnyq" method="POST">
+                            <div class="flex form-flex">
+                                <div class="form-col">
+                                    <input type="text" name="name" placeholder="Name" required>
+                                    <input type="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-col">
+                                    <textarea name="message" placeholder="Message" required></textarea>
+                                    <button type="submit" class="hero-btn">SEND</button>
+                                </div>
+                            </div>
+                        </form>    
+                    </div>
+                </div>
+                <button class="secondary-btn">DOWNLOAD RESUME<i class="fa-solid fa-arrow-right-long"></i><i class="fa-regular fa-file-pdf"></i></button>
+                <div class="section-arrows">
+                    <a href="#graphic-projects"><i class="fa-solid fa-arrow-left-long rainbow-letters"></i></a>
+                    <i class="fa-solid fa-arrow-left-long hidden"></i>
+                </div>
             </div>
         </section>
     </div>
@@ -237,8 +560,12 @@
     }
 </script> 
 
+
+<!--- JavaScipt for collapsibles -->
+<script type="module" src="src/dropdowns.js"></script>
+<script type="module" src="src/scroll-animations.js"></script>
 <!--- JavaScipt for canvas-->
 <script type="module" src="src/main.js"></script>
-<!-- <script src="exercise.js"></script> -->
+
 </body>
 </html>

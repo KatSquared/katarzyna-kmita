@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/public/vite.svg"/>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gajraj+One&family=Six+Caps&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7195f3535.js" crossorigin="anonymous"></script>
+    <title>Katarzyna Kmita - Portfolio</title>
+</head>
+<body>
+
+<!---svg gradient-->
+<svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="svg-gradient" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b44285" />
+      <stop offset="100%" stop-color="#00bbbb" />
+    </linearGradient>
+</svg>
+
+<!------------ NAV ------------>
+
+
+<nav>
+    <div class="menu-icon">
+        <i class="fa-solid fa-bars rainbow-letters" onclick="showMenu()"></i>
+    </div>
+    
+    <div class="menu-links" id="menuLinks">
+        <div class="close-icon">
+            <i class="fa-solid fa-xmark rainbow-letters" onclick="hideMenu()"></i>
+        </div> 
+        <ul>
+            <li><a href="index.html#intro-overlay" class="rainbow-letters">MAIN</a></li>
+            <li><a href="index.html#education" class="rainbow-letters">EDUCATION</a></li>
+            <li><a href="index.html#experience" class="rainbow-letters">EXPERIENCE</a></li>
+            <li><a href="index.html#skills" class="rainbow-letters">SKILLS</a></li>
+            <li><a href="index.html#web-projects" class="rainbow-letters">WEB PROJECTS</a></li>
+            <li><a href="index.html#graphic-projects" class="rainbow-letters">GRAPHIC PROJECTS</a></li>
+            <li><a href="index.html#contact" class="rainbow-letters">CONTACT</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!------------ WEB PROJECTS ------------>
+
+
+        <section class="projects graphic-projects project-one" id="">
+            <h1 class="rainbow-letters">E-COMMERCE WEBSITE</h1>
+            <div class="flex">
+                <div class="project-container">
+                    <div>
+                        <div class="img-container">
+                            <img src="/src/img/bathbombs.png" alt="Bathbombs website screenshot">
+                        </div>
+                        <div class="flex">
+                            <a href="https://katsquared.github.io/bathbombs/" target="_blank">
+                                <div class="flex">
+                                    <i class="fa-solid fa-eye rainbow-letters"></i>
+                                    <p>View project</p>
+                                </div>
+                            </a>
+                            <a href="https://github.com/KatSquared/bathbombs" target="_blank">
+                                <div class="flex">
+                                    <i class="fa-brands fa-github rainbow-letters" data-after="Github"></i>
+                                    <p>Source code</p>
+                                </div>
+                            </a>
+                        </div>
+                        <h2>E-COMMERCE WEBSITE</h2>
+                        <p class="description">An e-commerce website built for a fictional bath goods company. Contains a fully 
+                            functional basket and product filter system built entirely in vanilla JS, as well as 
+                            landing page built in Three.js using 3D models.  
+                        </p>
+                    </div>
+                    <div class="technologies">
+                        <ul class="flex">
+                            <li>JAVASCRIPT</li>
+                            <li>THREE.JS</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="section-arrows">
+                <a href=""><i class="fa-solid fa-arrow-left-long hidden"></i></a>
+                <a href="project-two.html" class="flex"><p class="rainbow-letters">NEXT PROJECT </p><i class="fa-solid fa-arrow-right-long rainbow-letters"></i></a>
+            </div>
+        </section>
+
+
+    
+</main>
+
+
+<!----JavaScript for toggle menu---->
+<script>
+    const menuLinks = document.getElementById("menuLinks");
+
+    function showMenu() {
+        menuLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+        menuLinks.style.right = "-500px";
+    }
+</script> 
+
+
+
+</body>
+</html>
