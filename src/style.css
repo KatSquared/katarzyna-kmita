@@ -31,6 +31,21 @@ body {
   background-color: var(--off-white);
 }
 
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+
 p, a{
   font-size: 1.2rem;
   line-height: 1.7rem;
@@ -88,6 +103,7 @@ nav {
   z-index: 40;
   right: 15px;
   top: 12px;
+  overflow-y: visible;
 }
 
 .menu-icon {
@@ -152,6 +168,17 @@ nav i:hover, nav a:hover{
 
 .desktop-nav {
   display: none;
+  overflow-y: visible;
+  width: 100vw;
+  padding-bottom: 36px !important;
+}
+
+.desktop-nav ul {
+  position: fixed;
+  z-index: 40;
+  right: 25px;
+  top: 12px;
+  overflow-y: visible;
 }
 
 
@@ -386,6 +413,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-y: visible;
 }
 
 .main-text {
@@ -426,6 +454,7 @@ section p {
   display: flex;
   justify-content: center;
   gap: 10px;
+  overflow-y: visible;
 }
 
 .section-arrows i {
@@ -533,6 +562,7 @@ section p {
   justify-content: flex-start;
   margin-bottom: 10px;
   flex-wrap: nowrap;
+  overflow-y: visible;
 }
 .main-text .flex p {
   line-height: 22px;
@@ -804,6 +834,7 @@ section.projects {
 
 .technologies {
   margin-top: 15px;
+  overflow-y: visible;
 }
 .technologies ul {
   justify-content: flex-start;
@@ -820,6 +851,10 @@ section.projects {
 }
 
 /* graphic projects */
+
+.graphic-projects {
+  overflow-y: hidden;
+}
 
 .graphic-projects .img-container {
   aspect-ratio: auto;
@@ -839,11 +874,13 @@ section.projects {
 
 .dropdown-content {
   opacity: 0;
+  transform: scaleY(0%);
   position: absolute !important;
 }
 
 .dropdown-content.visible  {
   opacity: 1;
+  transform: scaleY(100%);
   position: relative !important;
   padding-bottom: 15px !important;
 }
@@ -856,6 +893,9 @@ section.projects {
   transform: rotate(180deg);
 }
 
+.dropdown-content img {
+  margin: 15px 0;
+}
 
 /* media queries for projects */
 

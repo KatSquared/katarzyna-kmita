@@ -15,7 +15,7 @@ document.addEventListener('click', (e) => {
 
   dropdowns.forEach(dropdown => {
     const content = dropdown.querySelector('#dropdown-content');
-    const dropdownBtn = content.previousElementSibling;
+    const dropdownBtn = content.nextElementSibling;
 
     if (e.target.closest('#dropdown-btn')) {
       if (dropdownBtn != e.target.closest('#dropdown-btn')) {
