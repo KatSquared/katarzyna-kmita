@@ -598,7 +598,7 @@
 <!---- Credits ------>
 
 <div class="credits-container">
-    <div class="attributions-container hidden" id="attributions-container">
+    <div class="attributions-container inactive" id="attributions-container">
         <ul>
             <li>
             <a href="https://skfb.ly/o8WFA">"Splash"</a> 
@@ -676,7 +676,7 @@
     const showAttributions = () => {
         let attributions = document.getElementById('attributions-container');
         let attributionsCaret = document.getElementById('attributions-icon');
-        attributions.classList.toggle('hidden');
+        attributions.classList.toggle('inactive');
     }
 </script>
 
