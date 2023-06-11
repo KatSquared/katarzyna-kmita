@@ -184,11 +184,15 @@ nav i:hover, nav a:hover{
     margin: 0;
   }
   .menu-icon {
-    margin: -2px -47px;
+    margin: -10px -48px;
+    padding: 0;
   }
   .menu-links {
-    top: 30px;
+    top: 0px;
     padding-right: 30px;
+  }
+  .close-icon {
+    margin-top: 5%;
   }
   .resume i {
     color: var(--off-grey);
@@ -205,7 +209,7 @@ nav i:hover, nav a:hover{
     font-size: 1.4rem;
   }
   .menu-links ul{
-    padding: 40px 5%;
+    padding: 30px 5%;
   }
 }
 
@@ -259,6 +263,8 @@ nav i:hover, nav a:hover{
 }
 .attributions-container a:hover {
   color: var(--off-black) !important;
+  -webkit-text-fill-color: var(--off-black);
+  font-style: italic;
 }
 
 @media screen and (min-width: 1100px) {
