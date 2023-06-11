@@ -110,7 +110,7 @@ nav {
   position: fixed;
   z-index: 40;
   right: 5%;
-  top: 12px;
+  top: 0;
   overflow-y: visible;
 }
 
@@ -118,11 +118,13 @@ nav {
   display: flex;
   justify-content: right;
   padding: 15px 0px;
+  margin: 0 -6px;
 }
 
 nav i, nav a {
-  font-size: 2rem; 
+  font-size: 2.1rem; 
   -webkit-text-stroke: 5px transparent !important;
+  margin: 0 -3px;
 }
 
 nav i:hover, nav a:hover{
@@ -175,6 +177,19 @@ nav i:hover, nav a:hover{
 }
 
 @media screen and (min-width: 1100px) {
+  nav  {
+    top: 5%;
+  }
+  nav i {
+    margin: 0;
+  }
+  .menu-icon {
+    margin: -2px -47px;
+  }
+  .menu-links {
+    top: 30px;
+    padding-right: 30px;
+  }
   .resume i {
     color: var(--off-grey);
     font-size: 1.3rem;
@@ -184,7 +199,7 @@ nav i:hover, nav a:hover{
     line-height: 1.7rem;
   }
   nav i, nav a {
-    font-size: 2.5rem; 
+    font-size: 2.4rem; 
   }
   h2 {
     font-size: 1.4rem;
@@ -225,7 +240,7 @@ nav i:hover, nav a:hover{
 .attributions-container ul {
   margin: 0;
   padding: 5%;
-  margin-left: 70px;
+  margin-left: 90px;
 }
 .attributions-container li, .attributions-container a {
   color: var(--off-black);
@@ -244,6 +259,13 @@ nav i:hover, nav a:hover{
 }
 .attributions-container a:hover {
   color: var(--off-black) !important;
+}
+
+@media screen and (min-width: 1100px) {
+  .credits-container {
+    bottom: 60px;
+    right: 5%;
+  }
 }
 
 /* INTRO */
