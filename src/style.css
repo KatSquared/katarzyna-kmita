@@ -165,7 +165,7 @@ nav i:hover, nav a:hover{
 }
 
 .menu-links ul{
-  padding: 40px 5%;
+  padding: 30px 5%;
   margin-bottom: 40px;
 }
 
@@ -189,9 +189,16 @@ nav i:hover, nav a:hover{
   h2 {
     font-size: 1.4rem;
   }
+  .menu-links ul{
+    padding: 40px 5%;
+  }
 }
 
 /* Credits */
+
+.credits-section {
+  position: relative;
+}
 
 .credits-container {
   position: fixed;
@@ -218,6 +225,7 @@ nav i:hover, nav a:hover{
 .attributions-container ul {
   margin: 0;
   padding: 5%;
+  margin-left: 70px;
 }
 .attributions-container li, .attributions-container a {
   color: var(--off-black);
@@ -234,9 +242,8 @@ nav i:hover, nav a:hover{
 .attributions-container a {
   text-decoration: underline;
 }
-.attributions-container a:hover{
-  color: var(--off-black);
-  font-style: italic;
+.attributions-container a:hover {
+  color: var(--off-black) !important;
 }
 
 /* INTRO */
