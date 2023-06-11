@@ -67,6 +67,7 @@ li {
 
 h1 {
   font-size: 3.5rem;
+  line-height: 3rem;
   font-family: var(--display);
   text-transform: uppercase;
   color: var(--off-white);
@@ -120,7 +121,7 @@ nav {
 }
 
 nav i, nav a {
-  font-size: 2.5rem; 
+  font-size: 2.1rem; 
   -webkit-text-stroke: 5px transparent !important;
 }
 
@@ -182,6 +183,9 @@ nav i:hover, nav a:hover{
   p, a{
     font-size: 1rem;
     line-height: 1.7rem;
+  }
+  nav i, nav a {
+    font-size: 2.5rem; 
   }
   h2 {
     font-size: 1.4rem;
@@ -839,9 +843,9 @@ section.projects {
 
 
 .project-container img {
+  min-width: 300px;
   position: relative;
   width: 100%;
-  min-width: 385px;
   object-fit: cover;
   top: 0;
   left: 0;
@@ -968,6 +972,9 @@ section.projects {
   }
   .web-projects .img-overlay {
     aspect-ratio: 2.14/1;
+  }
+  .project-container img {
+    min-width: 385px;
   }
   .img-container:hover .img-overlay {
     opacity: 1;
