@@ -788,8 +788,10 @@ section.projects {
 
 .project-container {
   flex-basis: 100%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
   padding: 0 5%;
+  box-sizing: border-box;
 }
 
 
