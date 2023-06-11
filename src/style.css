@@ -859,7 +859,7 @@ section.projects {
 }
 
 .project-container p {
-  min-width: 200px;
+  min-width: 150px;
 }
 
 .projects .description {
@@ -979,6 +979,9 @@ section.projects {
   }
   .project-container img {
     min-width: 385px;
+  }
+  .project-container p {
+    min-width: 200px;
   }
   .img-container:hover .img-overlay {
     opacity: 1;
