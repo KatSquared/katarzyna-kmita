@@ -821,7 +821,7 @@ section.projects {
   gap: 0;
 }
 .img-overlay i, .graphic-projects i {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   padding: 10px;
   background: linear-gradient(
     -45deg, #b44285, #111622, #ff00f3, 
@@ -1040,8 +1040,8 @@ section.projects {
 }
 
 .contact i:not(.fa-arrow-left-long, .fa-arrow-right-long, .fa-file-pdf) {
-  padding: 5px;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  padding: 3.5px;
   background: linear-gradient(
     -45deg, #b44285, #00bbbb 
   );
@@ -1071,13 +1071,13 @@ section.projects {
 }
 
 button {
+  padding: 10px 15px;
+  font-size: 0.9rem;
   border: none;
   border-radius: 30px;
   font-weight: 400;
-  font-size: 1.2rem;
   color: var(--off-black);
   background: var(--main);
-  padding: 15px 20px;
   cursor: pointer;
 }
 button:hover {
@@ -1127,17 +1127,17 @@ form .flex {
 
 .contact-form input, .contact-form textarea{
   width: 100%;
-  padding: 10px;
+  padding: 8px 10px;
   outline: none;
   border: var(--off-black) solid 1px;
-  border-radius: 20px;
-  font-size: 16px;
+  border-radius: 15px;
+  font-size: 0.9rem;
   background-color: var(--off-white);
   color: var(--off-black);
 }
 .contact-form textarea {
+  min-height: 130px;
   width: 100%;
-  min-height: 180px;
 }
 
 form button {
@@ -1153,6 +1153,20 @@ form button {
 @media screen and (min-width: 1700px) {
   .contact-form textarea {
     min-width: 450px;
+    min-height: 180px;
+  }
+  .contact-form input, .contact-form textarea{
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  button {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+  }
+  .contact i:not(.fa-arrow-left-long, .fa-arrow-right-long, .fa-file-pdf) {
+    font-size: 2rem;
+    padding: 5px;
   }
 }
 
