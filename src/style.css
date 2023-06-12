@@ -84,6 +84,7 @@ h2 {
 i {
   color: var(--off-white);
   cursor: pointer; 
+  overflow-y: visible;
 }
 
 .hidden {
@@ -123,7 +124,7 @@ nav {
 
 nav i, nav a {
   font-size: 2.1rem; 
-  -webkit-text-stroke: 5px transparent !important;
+  -webkit-text-stroke: 4px transparent !important;
   margin: 0 -3px;
 }
 
@@ -220,8 +221,8 @@ nav i:hover, nav a:hover{
 }
 
 .credits-container {
-  position: fixed;
   bottom: 33px;
+  position: fixed;
   z-index: 30;
   display: flex;
   right: 0;
@@ -232,7 +233,7 @@ nav i:hover, nav a:hover{
   width: 100%;
 }
 .credits-container i {
-  font-size: 2.9rem;
+  font-size: 2.6rem;
   margin-right: calc(5% - 10px);
 }
 
@@ -244,18 +245,19 @@ nav i:hover, nav a:hover{
 .attributions-container ul {
   margin: 0;
   padding: 5%;
-  margin-left: 90px;
+  margin-left: 80px;
+  margin-bottom: -15px;
 }
 .attributions-container li, .attributions-container a {
+  line-height: 1rem;
   color: var(--off-black);
   font-size: 0.8rem;
   font-family: var(--text);
   padding: 0;
   margin: 0;
-  line-height: auto;
 }
 .attributions-container li, .attributions-container p {
-  margin: -20px 0;
+  margin: -22px 0;
   margin-left: 40px;
 }
 .attributions-container a {
@@ -271,6 +273,12 @@ nav i:hover, nav a:hover{
   .credits-container {
     bottom: 60px;
     right: 5%;
+  }
+  .attributions-container li, .attributions-container a {
+    line-height: 1rem;
+  }
+  .credits-container i {
+    font-size: 2.9rem;
   }
 }
 
@@ -340,6 +348,7 @@ nav i:hover, nav a:hover{
   justify-content: flex-start;
   margin-top: 15px;
   gap: 10px;
+  overflow-y: visible;
 }
 .intro .flex i {
   font-size: 1.8rem;
@@ -692,6 +701,7 @@ section p {
   align-items: center;
   justify-content: flex-start;
   margin-top: 0;
+  margin-bottom: -24px;
 }
 
 .skills i:not(.fa-arrow-left-long, .fa-arrow-right-long) {
@@ -754,6 +764,7 @@ section p {
 .three-js {
   height: 4.7rem;
   margin-top: -5px;
+  margin-bottom: -8px !important;
 }
 .three-js-container:hover path {
   stroke:url(#svg-gradient) #00bbbb;
@@ -761,7 +772,7 @@ section p {
 
 .greensock {
   height: 4.2rem !important;
-
+  margin-bottom: -6px !important;
 }
 .greensock:hover path {
   fill:url(#svg-gradient) #00bbbb;
@@ -847,6 +858,7 @@ section.projects {
   display: flex;
   justify-content: center;
   margin-top: 5px;
+  overflow-y: visible;
 }
 
 .overlay-desktop {
@@ -857,7 +869,7 @@ section.projects {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 0;
+  overflow-y: visible;
 }
 .img-overlay i, .graphic-projects i {
   font-size: 2.3rem;
@@ -871,6 +883,7 @@ section.projects {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-stroke: 6px transparent;
+  overflow-y: visible;
 }
 .img-overlay p {
   text-align: center;
