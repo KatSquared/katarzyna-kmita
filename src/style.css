@@ -88,7 +88,6 @@ h2 {
 i {
   color: var(--off-white);
   cursor: pointer; 
-  overflow-y: visible;
 }
 
 .hidden {
@@ -116,7 +115,6 @@ nav {
   z-index: 40;
   right: 5%;
   top: 0;
-  overflow-y: visible;
 }
 
 .menu-icon {
@@ -356,7 +354,6 @@ nav i:hover, nav a:hover{
   justify-content: flex-start;
   margin-top: 15px;
   gap: 10px;
-  overflow-y: visible;
 }
 .intro .flex i {
   font-size: 1.8rem;
@@ -486,7 +483,6 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: visible;
 }
 
 .main-text {
@@ -526,7 +522,6 @@ section p {
   display: flex;
   justify-content: center;
   gap: 10px;
-  overflow-y: visible;
 }
 
 .section-arrows i {
@@ -638,7 +633,6 @@ section p {
   justify-content: flex-start;
   margin-bottom: 10px;
   flex-wrap: nowrap;
-  overflow-y: visible;
 }
 .main-text .flex p {
   line-height: 22px;
@@ -862,7 +856,6 @@ section.projects {
   display: flex;
   justify-content: center;
   margin-top: 5px;
-  overflow-y: visible;
 }
 
 .overlay-desktop {
@@ -876,7 +869,6 @@ section.projects {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  overflow-y: visible;
 }
 .img-overlay i, .graphic-projects i {
   font-size: 2.3rem;
@@ -890,7 +882,6 @@ section.projects {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-stroke: 6px transparent;
-  overflow-y: visible;
 }
 .img-overlay p {
   text-align: center;
@@ -922,14 +913,12 @@ section.projects {
 
 .technologies {
   margin-top: 15px;
-  overflow-y: visible;
 }
 .technologies ul {
   gap: 10px;
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 10px;
-  overflow-y: visible;
 }
 .technologies li {
   padding: 10px 20px;
@@ -938,13 +927,15 @@ section.projects {
   border-radius: 30px;
   white-space: nowrap;
   font-size: 0.8rem;
-  overflow-y: visible;
 }
 
 /* graphic projects */
 
 .graphic-projects {
   overflow-y: hidden;
+}
+.graphic-projects .flex {
+  overflow-y: scroll;
 }
 
 .graphic-projects .img-container {
@@ -1007,7 +998,6 @@ section.projects {
   }
   .flex {
     max-height: 60vh !important;
-    overflow-y: scroll;
   }
   .projects h1 {
     margin-top: 0px;
@@ -1088,6 +1078,9 @@ section.projects {
 @media screen and (max-width: 1260px) and (min-width: 900px) {
   .technologies {
     margin-bottom: -15px !important;
+  }
+  .web-projects .flex {
+    overflow-y: scroll;
   }
 }
 
