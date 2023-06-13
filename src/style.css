@@ -934,7 +934,7 @@ section.projects {
 .graphic-projects {
   overflow-y: hidden;
 }
-.graphic-projects .flex {
+.projects-flex {
   overflow-y: scroll;
 }
 
@@ -1083,7 +1083,7 @@ section.projects {
   .technologies {
     margin-bottom: -15px !important;
   }
-  .web-projects .flex {
+  .projects-flex {
     overflow-y: scroll;
   }
 }
