@@ -701,7 +701,7 @@ section p {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px transparent;
 }
-.icon-row .glsl:hover::after, .npm-container:hover::after {
+.icon-row .glsl:hover::after {
   width: max-content;
 }
 .icon-row .fa-npm {
@@ -710,7 +710,6 @@ section p {
   align-items: center;
   justify-content: flex-start;
   margin-top: 0;
-  margin-bottom: -24px;
 }
 
 .skills i:not(.fa-arrow-left-long, .fa-arrow-right-long) {
@@ -732,7 +731,7 @@ section p {
 }
 
 
-.glsl, .adobe-container, .npm-container {
+.glsl, .adobe-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -772,8 +771,8 @@ section p {
 
 .three-js {
   height: 4.7rem;
-  margin-top: -5px;
-  margin-bottom: -8px !important;
+  margin-top: -7px !important;
+  margin-bottom: -10px !important;
 }
 .three-js-container:hover path {
   stroke:url(#svg-gradient) #00bbbb;
@@ -785,10 +784,6 @@ section p {
 }
 .greensock:hover path {
   fill:url(#svg-gradient) #00bbbb;
-}
-
-.npm-container {
-  width: 5.5rem;
 }
 
 .adobe {
@@ -971,6 +966,7 @@ section.projects {
 .dropdown-content {
   opacity: 0;
   transform: scaleY(0%);
+  -webkit-transform: scaleY(0%);
   position: absolute !important;
 }
 
