@@ -494,7 +494,6 @@ section {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   padding: 5%;
-  margin-top: 50px;
 }
 
 section h1 {
@@ -554,6 +553,7 @@ section p {
   .main-text {
     padding: 0;
     border-radius: 0;
+    margin-top: 50px;
   }
   section h1 {
     margin-top: -25px;
@@ -571,6 +571,7 @@ section p {
   .main-text {
     padding: 40px;
     border-radius: 30px;
+    margin-top: 50px;
   }
   section h1 {
     margin-top: -25px;
